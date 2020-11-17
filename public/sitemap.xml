@@ -3,31 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/abstract/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/abstract/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/introduction/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/introduction/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/chapitre1/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/chapitre1/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/tags/</loc>
   </url>
   
 </urlset>

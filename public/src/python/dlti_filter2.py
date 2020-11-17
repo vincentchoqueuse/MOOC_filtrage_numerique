@@ -26,5 +26,5 @@ ax.view_init(elev=44,azim=45)
 
 plt.xlabel("Real Part")
 plt.ylabel("Imaginary Part")
-plt.savefig("./dlti_filter2.svg") # export
+plt.savefig("./dlti_filter2.png") # export
 plt.show()
