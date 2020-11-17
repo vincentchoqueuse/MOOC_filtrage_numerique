@@ -16,3 +16,24 @@
           }
       )});
 </script>
+<script>
+
+document.addEventListener('click', function (event) {
+
+	// If the clicked element doesn't have the right selector, bail
+	if (event.target.id != 'nav-button') return;
+
+	event.preventDefault();
+  sidebar = sidebar == true ? false : true;
+  console.log(sidebar);
+  var col1 = element = document.getElementById("col1");
+  var col2 = element = document.getElementById("col2");
+  
+  col1.classList.toggle('col-sm-2');
+  col1.classList.toggle('d-none');
+  col2.classList.toggle('col-sm-9');
+  col2.classList.toggle('col-md-10')
+  col2.classList.toggle('col-sm-8')
+
+}, false);
+</script>

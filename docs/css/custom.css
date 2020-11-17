@@ -1,7 +1,7 @@
 
 body{
-    font-size: 17px;
-    line-height: 1.47059;
+    font-size: 18px;
+    line-height: 1.6;
     font-weight: 400;
     letter-spacing: -.022em;
     font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -96,8 +96,8 @@ h1 {
     }
 
 .content{
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .sidebar h2{
@@ -131,7 +131,6 @@ aside{
     font-weight: 400;
     color: #000000;
     padding-top: 4px;
-    padding-left: 20px;
 }
 
 .menu_nav li.active{
@@ -205,6 +204,5 @@ figcaption h4{
 }
 
 h2{
-    padding-top:30px;
-    padding-bottom: 20px;
+    padding-top:20px;
 }

@@ -14,26 +14,19 @@
     
     <title>Filtrage Numérique</title>
 </head><body><nav class="navbar navbar-expand-md custom-navbar">
-  <a class="navbar-brand" href="/">MO<span class="logo">OC</span></a>
+  <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
+   
+  <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/">MO<span class="logo">OC</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-     <ul class="nav mr-auto" style="text-align:right">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-    </ul>
-   <span class="navbar-text">
-      <a class="nav-link" href="spf13" >Github</a>
-    </span>
-  </div>
+
 </nav><main role="main" class="container-fluid">
         <div class="row">
-            <div class="col-2">
+            <div class="col-sm-2" id="col1">
 
-<aside class="sidebar sticky-top" id="sidebar">
+<aside class="sidebar sticky-top" id="sidebar" class="collapse" >
 <h2>Navigation</h2>
 <ul>
     <li>Cours</li>
@@ -72,7 +65,7 @@
     </ul>
 </ul>
 </aside></div>
-            <div class="col-10">
+            <div class="col-sm-8 offset-md-1" id="col2">
                 <div id="content" class="content">
 <h1 class="title">Filtrage Numérique</h1>
 
@@ -102,6 +95,28 @@
               ]
           }
       )});
-</script></body>
+</script>
+<script>
+
+document.addEventListener('click', function (event) {
+
+	
+	if (event.target.id != 'nav-button') return;
+
+	event.preventDefault();
+  sidebar = sidebar == true ? false : true;
+  console.log(sidebar);
+  var col1 = element = document.getElementById("col1");
+  var col2 = element = document.getElementById("col2");
+  
+  col1.classList.toggle('col-sm-2');
+  col1.classList.toggle('d-none');
+  col2.classList.toggle('col-sm-9');
+  col2.classList.toggle('col-md-10')
+  col2.classList.toggle('col-sm-8')
+
+}, false);
+</script>
+</body>
 </html>
 

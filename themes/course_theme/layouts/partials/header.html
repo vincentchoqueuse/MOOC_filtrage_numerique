@@ -1,17 +1,10 @@
 <nav class="navbar navbar-expand-md custom-navbar">
-  <a class="navbar-brand" href="/">MO<span class="logo">OC</span></a>
+  <button class="btn"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
+   
+  <a class="navbar-brand" href="{{ .Site.BaseURL }}">MO<span class="logo">OC</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-     <ul class="nav mr-auto" style="text-align:right">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-    </ul>
-   <span class="navbar-text">
-      <a class="nav-link" href="{{.Site.Params.Github}}" >Github</a>
-    </span>
-  </div>
+
 </nav>
