@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/abstract/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/chapitre1/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/</loc>
+  </url>
+  
+  <url>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/tags/</loc>
+  </url>
+  
+</urlset>

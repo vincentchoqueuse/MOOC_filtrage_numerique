@@ -2,7 +2,8 @@ baseURL = "http://moocfiltragenumerique.s3.amazonaws.com/"
 languageCode = "fr-fr"
 title = "Filtrage Numérique"
 theme = "course_theme"
-uglyurls = true
+#uglyurls = true
+publishDir = "docs"
 
 [params]
   AuthorName = "Vincent Choqueuse"
