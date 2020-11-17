@@ -1,0 +1,210 @@
+
+body{
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+    background-color: #fff;
+    color: #1d1d1f;
+    font-style: normal;
+}
+
+h1,h2, h3{
+
+    line-height: 1.125;
+    font-weight: 600;
+ }
+
+h1{
+    font-size: 32px;
+}
+h2{
+    font-size: 24px;
+}
+h3{
+    font-size: 16px;
+}
+
+.definition, .propriete, .exemple{
+    font-style: normal;
+    margin: 1rem 0;
+    padding: .0rem 1rem .0rem .75rem;
+    background-color: white;
+    border-radius: .15rem;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.definition, .propriete{
+    border-left: .25rem solid #6bf;
+}
+
+.exemple{
+    border-left: .25rem solid #ffae00;
+
+}
+
+.align_left {
+    float: left;
+    }
+
+
+.align_right {
+    float: right;
+    }
+
+.custom-navbar { 
+    background-color: white; 
+    color: white; 
+    border: solid 1px rgb(223,223,224); 
+}
+
+main{
+    padding-top:30px;
+}
+
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+body, input, textarea, select, button {
+    font-synthesis: none;
+    -moz-font-feature-settings: 'kern';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    text-align: left;
+    }
+
+
+
+h1,h2, h3{
+    line-height: 1.125;
+    font-weight: 600;
+    letter-spacing: .004em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+
+}
+
+h1 {
+    font-size: 32px;
+    }
+
+.content{
+    padding-right: 60px;
+    padding-left: 60px;
+}
+
+.sidebar h2{
+    font-weight: 400;
+    align-items: center;
+}
+
+aside{
+    position: sticky;
+}
+
+.sidebar{
+    padding-left: 20px;
+}
+
+.sidebar ul{
+    list-style: none;
+    padding-left: 0px;
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+.menu_nav{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+.menu_nav li{
+    font-weight: 400;
+    color: #000000;
+    padding-top: 4px;
+    padding-left: 20px;
+}
+
+.menu_nav li.active{
+    font-weight: 700px;
+}
+
+.menu_nav li.active a{
+    color: #000000;
+}
+
+.menu_nav li a{
+    color: #00000075;
+}
+
+.footer-nav{
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+#TableOfContents >ul {
+    padding-top: 0px;
+    padding-left: 20px;
+}
+
+#TableOfContents > ul > li > a:active{
+    color: #orange;
+}
+
+figure{
+    text-align: center;
+}
+
+figcaption{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+figcaption h4::before{
+    content : "Figure. ";
+    font-style: italic;
+}
+
+figcaption h4{
+    font-size: 1rem;
+    font-weight: normal;
+
+}
+
+.navbar-brand{
+    font-weight: 1100;
+    padding-left: 20px;
+    font-size: 26px;
+    color: black !important;
+    font-family: 'Righteous', cursive;
+}
+
+.logo{
+    color:black;
+}
+
+.nav-link{
+    color: black!important;
+}
+
+.content{
+    padding-top: 18px;
+}
+
+.cover{
+    padding-top:40px;
+}
+
+h2{
+    padding-top:30px;
+    padding-bottom: 20px;
+}

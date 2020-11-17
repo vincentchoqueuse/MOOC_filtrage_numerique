@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Filtrage Numérique</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Filtrage Numérique</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Abstract</title>
+      <link>http://example.org/posts/abstract/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/abstract/</guid>
+      <description>Ce document est un cours d&amp;rsquo;introduction au filtrage numérique destiné à un public de Master ayant des bases en traitement du signal. Globalement, ce document a deux objectifs.
+ Dans un premier temps, il présente les outils mathématiques utilisés pour analyser le comportement des filtres numériques tels que la transformée en $\mathcal{Z}$ et la transformée de Fourier. Dans un second temps, il décrit plusieurs techniques permettant de synthétiser un filtre numérique à partir d&amp;rsquo;un ensemble de spécifications.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>http://example.org/posts/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/introduction/</guid>
+      <description>Un filtre permet de &amp;ldquo;sculpter&amp;rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus simples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&amp;rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce document, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie.</description>
+    </item>
+    
+    <item>
+      <title>Analyse des filtres LTI</title>
+      <link>http://example.org/posts/chapitre1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/chapitre1/</guid>
+      <description>Dans cette section, nous allons introduire les outils nécessaires pour l&amp;rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un exemple de filtre d&amp;rsquo;ordre 2.
+Exemple (Filtre 1)
+Le filtre 1 est décrit par l&#39;équation aux différences $$ y[n]=0.065x[n]+0.13 x[n-1]+0.065x[n-2]+1.143y[n-1]-0.413y[n-2]. $$  Transformée en Z Définition (Transformée en $\mathcal{Z}$)
+La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie par l&#39;équation $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$ où $z$ est une variable complexe.</description>
+    </item>
+    
+  </channel>
+</rss>
