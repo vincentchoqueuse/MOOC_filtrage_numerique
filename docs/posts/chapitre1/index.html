@@ -114,7 +114,7 @@ où $z$ est une variable complexe.
 </div>
 <p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ introduisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, la figure \ref{fig_schema} présente le schéma bloc du filtre~1.</p>
 <figure>
-    <img src="img/fig2.svg" width="450"/> <figcaption>
+    <img src="MOOC_filtrage_numerique/img/fig2.svg" width="450"/> <figcaption>
             <h4>Schéma bloc du filtre 1</h4>
         </figcaption>
 </figure>
@@ -135,7 +135,7 @@ La fonction de transfert d'un filtre numérique décrit par une équation aux di
 <p>$$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$</p>
 <p>La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des &ldquo;pics&rdquo; et des &ldquo;vallées&rdquo;.</p>
 <figure>
-    <img src="%7b%7b%20.Site.BaseURL%20%7d%7dimg/dlti_filter2.png" width="550"/> <figcaption>
+    <img src="MOOC_filtrage_numerique/img/dlti_filter2.png" width="550"/> <figcaption>
             <h4>Module de la fonction de transfert $H(z)$</h4>
         </figcaption>
 </figure>
@@ -155,7 +155,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
         </figcaption>
 </figure>
 
-<p>La localisation des pôles est directemenet lié à la stabilité du filtre. De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|&lt;\infty$. La propriété suivante montre que cette propriété est directement liée au module des pôles de la fonction de transfert.</p>
+<p>La localisation des pôles est directement lié à la stabilité du filtre. De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|&lt;\infty$. La propriété suivante montre que cette propriété est directement liée au module des pôles de la fonction de transfert.</p>
 <p><strong>Propriété</strong> (Stabilité)</p>
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$
 $$|d_l|\le 1.$$
