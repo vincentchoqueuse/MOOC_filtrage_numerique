@@ -4,6 +4,6 @@
 <p>{{.Site.Params.AuthorName}} (<a href="mailto:{{.Site.Params.email}}">{{.Site.Params.email}}</a>)
 </p>
 <figure>
-<img src="/img/{{.Site.Params.cover}}" class="cover"> </img>
+<img src="{{ .Site.BaseURL }}img/{{.Site.Params.cover}}" class="cover"> </img>
 </figure>
 {{ end }}
