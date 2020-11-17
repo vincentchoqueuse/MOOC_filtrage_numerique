@@ -114,7 +114,7 @@ où $z$ est une variable complexe.
 </div>
 <p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ introduisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, la figure \ref{fig_schema} présente le schéma bloc du filtre~1.</p>
 <figure>
-    <img src="%7b%7b%20.Site.BaseURL%20%7d%7dimg/fig2.svg" width="450"/> <figcaption>
+    <img src="img/fig2.svg" width="450"/> <figcaption>
             <h4>Schéma bloc du filtre 1</h4>
         </figcaption>
 </figure>
@@ -150,7 +150,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
 </div>
 <p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des algorithmes numériques. A titre d&rsquo;illustration, la fonction Python <code>root</code> permet d&rsquo;établir que le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugués en $z=0.57\pm 0.29j$. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure \ref{fig_carte_pz} présente la localisation des pôles et des zéros pour le filtre 1.</p>
 <figure>
-    <img src="%7b%7b%20.Site.BaseURL%20%7d%7dimg/zpk_filter2.svg" width="450"/> <figcaption>
+    <img src="img/zpk_filter2.svg" width="450"/> <figcaption>
             <h4>Pôles et Zéros du Filtre 2</h4>
         </figcaption>
 </figure>

@@ -15,19 +15,3 @@ publishDir = "docs"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
-[deployment]
-order = [".png$", ".jpg$", ".gif$", ".svg$"]
-
-[[deployment.targets]]
-URL = "s3://moocfiltragenumerique?region=eu-west-3"
-
-[[deployment.matchers]]
-# Cache static assets for 20 years.
-pattern = "^.+\\.(js|css|png|jpg|gif|svg|ttf)$"
-cacheControl = "max-age=630720000, no-transform, public"
-gzip = true
-
-[[deployment.matchers]]
-pattern = "^.+\\.(html|xml|json)$"
-gzip = true
