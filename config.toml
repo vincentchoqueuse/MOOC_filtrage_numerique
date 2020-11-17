@@ -1,4 +1,4 @@
-baseURL = "http://moocfiltragenumerique.s3.amazonaws.com/"
+baseURL = "https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"
 languageCode = "fr-fr"
 title = "Filtrage Numérique"
 theme = "course_theme"
