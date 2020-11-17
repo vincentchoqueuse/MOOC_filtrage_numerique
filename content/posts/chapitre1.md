@@ -69,7 +69,7 @@ $$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$
 
 La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des "pics" et des "vallées". 
 
-{{< figure src="/img/dlti_filter2.svg" title="Module de la fonction de transfert $H(z)$" width="550" >}}
+{{< figure src="/img/dlti_filter2.png" title="Module de la fonction de transfert $H(z)$" width="550" >}}
 
 
 ## Pôles et Zéros

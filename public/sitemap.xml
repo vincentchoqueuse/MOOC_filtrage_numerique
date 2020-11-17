@@ -3,31 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/abstract/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/abstract.html</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/introduction/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/introduction.html</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/chapitre1/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts/chapitre1.html</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/categories/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/categories.html</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/posts/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/posts.html</loc>
   </url>
   
   <url>
-    <loc>https://moocfiltragenumerique.s3-website.eu-west-3.amazonaws.com/tags/</loc>
+    <loc>http://moocfiltragenumerique.s3.amazonaws.com/tags.html</loc>
   </url>
   
 </urlset>
