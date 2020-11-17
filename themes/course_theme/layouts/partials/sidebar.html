@@ -1,0 +1,23 @@
+
+<!-- sidebar start -->
+<aside class="sidebar sticky-top" id="sidebar">
+<h2>Navigation</h2>
+<ul>
+    <li>Cours</li>
+    <ul class="menu_nav">
+        {{ $currentPage := . }}
+        {{ range ((where .Site.Pages "Section" "posts").ByWeight)}}
+            {{ if .Params.Title }}
+                <li {{if eq $currentPage  .Page }}class="active"{{ end }} >
+                    <a href="{{ .Permalink }}">
+                        <span>{{ .Params.Title }}</span>
+                    </a>
+                </li>
+                {{if eq $currentPage  .Page }}
+                {{.TableOfContents}}
+                {{end}}
+            {{ end }}
+        {{ end }}
+    </ul>
+</ul>
+</aside>

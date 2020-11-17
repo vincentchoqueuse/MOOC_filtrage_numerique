@@ -1,0 +1,9 @@
+{{ define "main" }}
+<h1 class="title">{{ .Site.Title }}</h1>
+
+<p>{{.Site.Params.AuthorName}} (<a href="mailto:{{.Site.Params.email}}">{{.Site.Params.email}}</a>)
+</p>
+<figure>
+<img src="/img/{{.Site.Params.cover}}" class="cover"> </img>
+</figure>
+{{ end }}

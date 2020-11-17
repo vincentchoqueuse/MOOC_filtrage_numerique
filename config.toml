@@ -1,0 +1,18 @@
+baseURL = "http://example.org/"
+languageCode = "fr-fr"
+title = "Filtrage Numérique"
+theme = "course_theme"
+
+[params]
+  AuthorName = "Vincent Choqueuse"
+  GitHub = "spf13"
+  Subtitle = "Hugo is Absurdly Fast!"
+  cover = "cover.jpg"
+  email = "choqueuse@enib.fr"
+
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
