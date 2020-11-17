@@ -41,7 +41,7 @@ Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne co
 La propriété liée au décalage temporel indique qu'un retard d'un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l'équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ introduisent un retard d'un échantillon. A titre d'exemple, la figure \ref{fig_schema} présente le schéma bloc du filtre~1.
 
 
-{{< figure src="MOOC_filtrage_numerique/img/fig2.svg" title="Schéma bloc du filtre 1" width="450" >}}
+{{< figure src="/MOOC_filtrage_numerique/img/fig2.svg" title="Schéma bloc du filtre 1" width="450" >}}
 
 
 La propriété liée à la convolution montre l'importance de la transformée en $\mathcal{Z}$ de la réponse impulsionnelle, $H(z)$. Cette transformée en $\mathcal{Z}$ est appelé fonction de transfert du filtre. 
@@ -69,7 +69,7 @@ $$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$
 
 La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des "pics" et des "vallées". 
 
-{{< figure src="MOOC_filtrage_numerique/img/dlti_filter2.png" title="Module de la fonction de transfert $H(z)$" width="550" >}}
+{{< figure src="/MOOC_filtrage_numerique/img/dlti_filter2.png" title="Module de la fonction de transfert $H(z)$" width="550" >}}
 
 
 ## Pôles et Zéros
@@ -88,7 +88,7 @@ où les valeurs $c_m$ et $d_l$ correspondent respectivement aux zéros et aux p�
 
 En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des algorithmes numériques. A titre d'illustration, la fonction Python `root` permet d'établir que le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugués en $z=0.57\pm 0.29j$. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure \ref{fig_carte_pz} présente la localisation des pôles et des zéros pour le filtre 1.
 
-{{< figure src="img/zpk_filter2.svg" title="Pôles et Zéros du Filtre 2" width="450" >}}
+{{< figure src="/MOOC_filtrage_numerique/img/zpk_filter2.svg" title="Pôles et Zéros du Filtre 2" width="450" >}}
 
 La localisation des pôles est directement lié à la stabilité du filtre. De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|<\infty$. La propriété suivante montre que cette propriété est directement liée au module des pôles de la fonction de transfert.
 
