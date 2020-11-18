@@ -8,8 +8,8 @@ function switch_col()
   col1.classList.toggle('col-sm-2');
   col1.classList.toggle('d-none');
   col2.classList.toggle('col-sm-8');
-  col2.classList.toggle('col-md-8');
-  col2.classList.toggle('offset-md-2');
+  col2.classList.toggle('col-lg-8');
+  col2.classList.toggle('offset-lg-2');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
