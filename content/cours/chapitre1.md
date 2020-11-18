@@ -100,3 +100,6 @@ $$|d_l|\le 1.$$
 
 La figure \ref{fig_pz_imp} présente la localisation des pôles et des zéros ainsi que la réponse impulsionnelle de deux filtres IIR. Le premier filtre est stable car tous ses pôles sont inclus dans le cercle de rayon unité. A l'inverse, le second filtre est instable car il possède un pôle en $z=-1.4$ dont le module est supérieur à 1. Pour ce second filtre, nous constatons que la réponse impulsionnelle semble tendre vers des valeurs infinies.
 
+<div class="text-align:center" style="font-size: 40px">
+To be continued !
+</div>

@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/</guid>
-      <description>Affichage d&amp;rsquo;une sinusoïde import numpy as np import matplotlib.pyplot as plt Fs = 1000 # sampling frequency n = np.arange(Fs) t = n/Fs x = np.sin(2*np.pi*10*t) #plot curve plt.plot(t,x) plt.xlabel(&amp;#34;t [s]&amp;#34;) plt.ylabel(&amp;#34;amplitude&amp;#34;) </description>
+      <description>Affichage d&amp;rsquo;une sinusoïde import numpy as np import matplotlib.pyplot as plt Fs = 1000 # sampling frequency n = np.arange(Fs) t = n/Fs x = np.sin(2*np.pi*10*t) #plot curve plt.plot(t,x) plt.xlabel(&amp;#34;t [s]&amp;#34;) plt.ylabel(&amp;#34;amplitude&amp;#34;) To be continued ! </description>
     </item>
     
     <item>
