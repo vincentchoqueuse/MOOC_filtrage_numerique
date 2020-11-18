@@ -4,14 +4,13 @@
         <header>
             <h1>{{.Title}}</h1>
         </header>
-        <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
         {{.Content}}
     </article>
+    <h2>Content</h2>
     <ul>
     <!-- Ranges through content/posts/*.md -->
-    {{ range .Pages }}
-        <li>
-            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+    {{ range $index, $element := .Pages }}
+        <li>Chapter {{ $index }}: <a href="{{.Permalink}}"> {{.Title}}</a>
         </li>
     {{ end }}
     </ul>

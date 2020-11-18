@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    
+    
+    <title>Filtrage Numérique | Introduction</title>
+</head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
+  <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
+   
+   <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> OCW</span></a>
+
+        </li>
+    </ul>
+    <span class="navbar-text">
+      <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
+    </span>
+</nav><main role="main" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2" id="col1">
+
+<aside class="sidebar" id="sidebar" class="collapse" >
+<h2 class="d-none d-sm-block">Table of Contents</h2>
+<nav class="sidebar-nav">
+    
+    <ul class="menu_nav">
+    
+        <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
+        <ul class="sub_menu_nav">
+        
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
+             
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#modélisation">Modélisation</a></li>
+    <li><a href="#problématiques">Problématiques</a></li>
+  </ul>
+</nav>
+                
+        
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse des filtres LTI</a></li>
+             
+        
+        </ul>
+
+    
+        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
+        <ul class="sub_menu_nav">
+        
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/"> Python Cheatsheet</a></li>
+             
+        
+        </ul>
+
+    
+    </ul>
+</nav>
+</aside></div>
+            <div class="col-sm-9" id="col2">
+                <div id="content" class="content">
+<h1>Introduction</h1>
+
+<br>
+<p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus simples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce document, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie. Ces filtres sont couramment utilisés dans un large panel d&rsquo;applications.</p>
+<h2 id="modélisation">Modélisation</h2>
+<p>Un filtre numérique peut être modélisé par une fonction mathématique prenant en entrée un signal numérique et renvoyant en sortie un signal numérique (voir figure \ref{deffiltre}). Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$). L&rsquo;annexe \ref{app_sig} présente l&rsquo;allure de plusieurs signaux numériques en fonction de $n$ (impulsion, echelon, exponentielle réelle, signal sinusoidal).</p>
+<figure>
+    <img src="/MOOC_filtrage_numerique/img/fig1.svg" width="450"/> <figcaption>
+            <h4>Filtre LTI</h4>
+        </figcaption>
+</figure>
+
+<p>Dans ce cours, nous allons nous intéresser à la classe des filtres dits linéaires et invariant dans le temps (LTI).</p>
+<p><strong>Définition</strong> (Filtre LTI)</p>
+<div class="definition">
+Un filtre LTI respecte les propriétés suivantes:
+<ul>
+<li>Linéarité: Si l&rsquo;entrée du filtre est égale à $x[n]=\alpha x_1[n]+\beta x_2[n]$, alors $y[n]=\alpha y_1[n]+\beta y_2[n]$.</li>
+<li>Invariance dans le temps: Si l&rsquo;entrée du filtre est égale à $x[n]=x_1[n-\tau]$ ($\tau \in \mathbb{Z}$), alors $y[n]=y_1[n-\tau]$.</li>
+</ul>
+</div>
+<p>Un filtre LTI est entièrement décrit par sa réponse à une entrée de type impulsion ($x[n]=\delta[n]$). La réponse à une entrée de type impulsion est appelée réponse impulsionnelle et est notée $h[n]$. Lorsque l&rsquo;entrée est un signal quelconque, la propriété suivante montre que la sortie du filtre s&rsquo;obtient en convoluant l&rsquo;entrée avec la réponse impulsionnelle du filtre.</p>
+<p><strong>Propriété</strong></p>
+<div class="definition">
+Lorsqu'un signal $x[n]$ est envoyé à l'entrée d'un filtre LTI, la sortie s'exprime sous la forme
+$$y[n]=x[n]*h[n] \triangleq \sum_{k=-\infty}^{\infty}x[k]h[n-k]$$
+où $*$ désigne le produit de convolution et $h[n]$ correspond à la réponse impulsionnelle du filtre.
+</div>
+<p>Une grande partie des filtres LTI peut s&rsquo;exprimer à partir d&rsquo;une équation aux différences</p>
+<p>$$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l],$$</p>
+<p>où les coefficients réels $b_m$ et $a_l$ correspondent respectivement aux coefficients de la partie non récursive et récursive du filtre. Notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$.</p>
+<p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient en posant $x[n]=\delta[n]$ dans l&rsquo;équation (\ref{filtre1}). En fonction des coefficients $a_k$, il est alors possible de définir deux grandes catégories de filtres:</p>
+<ul>
+<li>les filtres à Réponse Impulsionnelle Finie (FIR) pour lesquels $a_l=0$ pour tout $l&gt;0$,</li>
+<li>les filtres à Réponse Impulsionnelle Infinie (IIR) pour lesquels il existe au moins une valeur de $l$ ($l&gt;0$) telle que $a_l\ne 0$.</li>
+</ul>
+<h2 id="problématiques">Problématiques</h2>
+<p>Dans ce document, nous allons traiter les problématiques suivantes.</p>
+<ul>
+<li>Connaissant la valeur des coefficients $b_m$ et $a_l$, est-il possible de comprendre l&rsquo;effet d&rsquo;un filtre sur une entrée quelconque $x[n]$ ?</li>
+<li>Est-il possible de déterminer les coefficients $b_m$ et $a_l$ d&rsquo;un filtre à partir d&rsquo;un ensemble de spécifications fréquentielles ou temporelles ?</li>
+</ul>
+
+<div class="footer-nav">
+
+    <div class="next-post align_left">
+    
+    </div>
+
+    <div class="previous-post align_right">
+    
+	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse des filtres LTI »</a>
+	  
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+                 </div>
+            </div>
+        </div>
+        </main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
+<script src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/js/custom.js"></script>
+</body>
+</html>
+

@@ -3,15 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/posts/abstract/</loc>
+    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/</loc>
   </url>
   
   <url>
-    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/posts/introduction/</loc>
+    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/</loc>
   </url>
   
   <url>
-    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/posts/chapitre1/</loc>
+    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/</loc>
   </url>
   
   <url>
@@ -23,7 +27,7 @@
   </url>
   
   <url>
-    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/posts/</loc>
+    <loc>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/</loc>
   </url>
   
   <url>

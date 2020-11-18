@@ -1,10 +1,13 @@
-<nav class="navbar navbar-expand-md custom-navbar">
+<nav class="navbar fixed-top navbar-expand-md custom-navbar">
   <button class="btn"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
    
-  <a class="navbar-brand" href="{{ .Site.BaseURL }}">MO<span class="logo">OC</span></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+   <ul class="navbar-nav mr-auto">
+       <li class="nav-item active">
+          <a class="navbar-brand" href="{{ .Site.BaseURL }}"> OCW</span></a>
 
-
+        </li>
+    </ul>
+    <span class="navbar-text">
+      <a class="nav-link" href="{{.Site.Params.GitHub}}"><img src="{{ .Site.BaseURL }}img/github.svg"></img></a>
+    </span>
 </nav>

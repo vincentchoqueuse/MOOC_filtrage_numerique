@@ -3,11 +3,11 @@ languageCode = "fr-fr"
 title = "Filtrage Numérique"
 theme = "course_theme"
 publishDir = "docs"
+sectionPagesMenu = "main"
 
 [params]
   AuthorName = "Vincent Choqueuse"
-  GitHub = "spf13"
-  Subtitle = "Hugo is Absurdly Fast!"
+  GitHub = "https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"
   cover = "cover.jpg"
   email = "choqueuse@enib.fr"
 

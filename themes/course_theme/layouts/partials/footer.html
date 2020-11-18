@@ -3,37 +3,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
-<script>
-     document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, 
-          {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\(", right: "\\)", display: false},
-                {left: "\\[", right: "\\]", display: true}
-              ]
-          }
-      )});
-</script>
-<script>
-
-document.addEventListener('click', function (event) {
-
-	// If the clicked element doesn't have the right selector, bail
-	if (event.target.id != 'nav-button') return;
-
-	event.preventDefault();
-  sidebar = sidebar == true ? false : true;
-  console.log(sidebar);
-  var col1 = element = document.getElementById("col1");
-  var col2 = element = document.getElementById("col2");
-  
-  col1.classList.toggle('col-sm-2');
-  col1.classList.toggle('d-none');
-  col2.classList.toggle('col-sm-9');
-  col2.classList.toggle('col-md-10')
-  col2.classList.toggle('col-sm-8')
-
-}, false);
-</script>
+<script src="{{ .Site.BaseURL }}js/custom.js"></script>

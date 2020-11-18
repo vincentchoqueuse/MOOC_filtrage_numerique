@@ -1,23 +1,22 @@
 
 <!-- sidebar start -->
-<aside class="sidebar sticky-top" id="sidebar" class="collapse" >
-<h2>Navigation</h2>
-<ul>
-    <li>Cours</li>
+<aside class="sidebar" id="sidebar" class="collapse" >
+<h2 class="d-none d-sm-block">Table of Contents</h2>
+<nav class="sidebar-nav">
+    {{ $currentPage := . }}
     <ul class="menu_nav">
-        {{ $currentPage := . }}
-        {{ range ((where .Site.Pages "Section" "posts").ByWeight)}}
-            {{ if .Params.Title }}
-                <li {{if eq $currentPage  .Page }}class="active"{{ end }} >
-                    <a href="{{ .Permalink }}">
-                        <span>{{ .Params.Title }}</span>
-                    </a>
-                </li>
-                {{if eq $currentPage  .Page }}
+    {{ range .Site.Menus.main }}
+        <li> <a class="sidebar-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+        <ul class="sub_menu_nav">
+        {{range .Page.Pages}}
+            <li ><a href="{{ .Permalink }}"> {{.Title}}</a></li>
+             {{if eq $currentPage  .Page }}
                 {{.TableOfContents}}
                 {{end}}
-            {{ end }}
-        {{ end }}
+        {{end}}
+        </ul>
+
+    {{ end }}
     </ul>
-</ul>
+</nav>
 </aside>

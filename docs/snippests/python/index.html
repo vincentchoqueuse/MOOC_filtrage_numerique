@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html><head>
-	<meta name="generator" content="Hugo 0.78.2" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -12,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     
     
-    <title>Filtrage Numérique</title>
+    <title>Filtrage Numérique | Python Cheatsheet</title>
 </head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
   <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
    
@@ -47,11 +46,17 @@
         </ul>
 
     
-        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
+        <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
         <ul class="sub_menu_nav">
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/"> Python Cheatsheet</a></li>
              
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#affichage-dune-sinusoïde">Affichage d&rsquo;une sinusoïde</a></li>
+  </ul>
+</nav>
+                
         
         </ul>
 
@@ -61,13 +66,34 @@
 </aside></div>
             <div class="col-sm-9" id="col2">
                 <div id="content" class="content">
-<h1 class="title">Filtrage Numérique</h1>
+<h1>Python Cheatsheet</h1>
 
-<p>Vincent Choqueuse (<a href="mailto:choqueuse@enib.fr">choqueuse@enib.fr</a>)
-</p>
-<figure>
-<img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cover.jpg" class="cover figure-img img-fluid rounded"> </img>
-</figure>
+<br>
+<h2 id="affichage-dune-sinusoïde">Affichage d&rsquo;une sinusoïde</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+Fs <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#75715e"># sampling frequency</span>
+n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(Fs)
+t <span style="color:#f92672">=</span> n<span style="color:#f92672">/</span>Fs
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">*</span>t)
+
+<span style="color:#75715e">#plot curve</span>
+plt<span style="color:#f92672">.</span>plot(t,x)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;t [s]&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;amplitude&#34;</span>)</code></pre></div>
+
+<div class="footer-nav">
+
+    <div class="next-post align_left">
+    
+    </div>
+
+    <div class="previous-post align_right">
+    
+    </div>
+    <div style="clear: both;"></div>
+</div>
 
                  </div>
             </div>

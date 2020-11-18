@@ -1,7 +1,17 @@
-# MOOC_filtrage_numerique
+# A super Clean Hugo template for Scientific Courses
 
-A minimal website generator based on hugo well suited for scienfic courses.
+A minimal website generator based on hugo well suited for scientific courses.
 
-The hugo template uses bootstrap 4 and Katex. Figure can be generated from python or tiks.
+* Demo website: https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/
 
-* Demo website: https://moocfiltragenumerique.s3.eu-west-3.amazonaws.com/index.html
+## Content
+
+* Mathematical content via Katex
+* Vectorized figures via Python / Matplotlib (src/python) or via Tikz (src/tikz) 
+
+## Technologies
+
+* Site generated from the super fast Hugo website generator
+* Responsive website using bootstrap 
+* Site Hosted on github page 
+
