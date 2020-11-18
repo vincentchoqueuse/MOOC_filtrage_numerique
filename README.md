@@ -1,4 +1,4 @@
-# A super Clean Hugo template for Scientific Courses
+# A super Clean Hugo template for Scientific Courses (OCW)
 
 A minimal website generator based on hugo well suited for scientific courses.
 
@@ -6,6 +6,7 @@ A minimal website generator based on hugo well suited for scientific courses.
 
 ## Content
 
+* Super fast writing using Markdown
 * Mathematical content via Katex
 * Vectorized figures via Python / Matplotlib (src/python) or via Tikz (src/tikz) 
 
