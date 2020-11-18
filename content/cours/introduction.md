@@ -9,7 +9,7 @@ Un filtre permet de "sculpter" un signal en supprimant ou en accentuant certaine
 
 ## Modélisation
 
-Un filtre numérique peut être modélisé par une fonction mathématique prenant en entrée un signal numérique et renvoyant en sortie un signal numérique (voir figure \ref{deffiltre}). Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$). L'annexe \ref{app_sig} présente l'allure de plusieurs signaux numériques en fonction de $n$ (impulsion, echelon, exponentielle réelle, signal sinusoidal).
+Un filtre numérique peut être modélisé par une fonction mathématique prenant en entrée un signal numérique et renvoyant en sortie un signal numérique. Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$). 
 
 
 {{< figure src="/MOOC_filtrage_numerique/img/fig1.svg" title="Filtre LTI" width="450" >}}

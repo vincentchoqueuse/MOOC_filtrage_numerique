@@ -111,7 +111,7 @@ où les valeurs $z_m$ et $p_l$ correspondent respectivement aux zéros et aux p�
 </div>
 
 
-En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure \ref{fig_carte_pz} présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. 
+En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. 
 
 
 **Exemple** (Filtre 1)

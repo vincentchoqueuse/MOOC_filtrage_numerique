@@ -6,7 +6,7 @@ weight: 1
 La librairie Python `scipy` contient tous les outils nécessaire pour l'analyse et l'implémentation des filtres. 
 La fonction `dlti` permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir [doc](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html)). 
 
-## Pôles et des zéros
+## Pôles et zéros
 
 Les pôles et les zéros sont des attributs de l'objet `dlti`.
 
