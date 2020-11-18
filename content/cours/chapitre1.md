@@ -3,7 +3,6 @@ title: "Analyse des filtres LTI"
 weight: 3
 ---
 
-
 Dans cette section, nous allons introduire les outils nécessaires pour l'analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un exemple de filtre d'ordre 2.
 
 **Exemple** (Filtre 1)
