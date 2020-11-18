@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     
     
     <title>Filtrage Numérique | Python Cheatsheet</title>
@@ -17,19 +15,18 @@
    
    <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> OCW</span></a>
+          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> Home</a>
 
         </li>
     </ul>
-    <span class="navbar-text">
-      <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
-    </span>
+    <a class="nav-link" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
+    <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
         <div class="row">
-            <div class="col-sm-2" id="col1">
+            <div class="col-sm-3" id="col1">
 
 <aside class="sidebar" id="sidebar" class="collapse" >
-<h2 class="d-none d-sm-block">Table of Contents</h2>
+<h2 class="d-none d-sm-block">Filtrage Numérique </h2>
 <nav class="sidebar-nav">
     
     <ul class="menu_nav">
@@ -40,7 +37,10 @@
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
         
-            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse des filtres LTI</a></li>
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine Z</a></li>
+             
+        
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle</a></li>
              
         
         </ul>
@@ -53,7 +53,9 @@
              
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#affichage-dune-sinusoïde">Affichage d&rsquo;une sinusoïde</a></li>
+    <li><a href="#pôles-et-des-zéros">Pôles et des zéros</a></li>
+    <li><a href="#réponses-temporelles">Réponses Temporelles</a></li>
+    <li><a href="#réponse-fréquentielle">Réponse Fréquentielle</a></li>
   </ul>
 </nav>
                 
@@ -64,27 +66,56 @@
     </ul>
 </nav>
 </aside></div>
-            <div class="col-sm-9" id="col2">
+            <div class="col-sm-8" id="col2">
                 <div id="content" class="content">
 <h1>Python Cheatsheet</h1>
 
 <br>
-<h2 id="affichage-dune-sinusoïde">Affichage d&rsquo;une sinusoïde</h2>
+<p>La librairie Python <code>scipy</code> contient tous les outils nécessaire pour l&rsquo;analyse et l&rsquo;implémentation des filtres.
+La fonction <code>dlti</code> permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html">doc</a>).</p>
+<h2 id="pôles-et-des-zéros">Pôles et des zéros</h2>
+<p>Les pôles et les zéros sont des attributs de l&rsquo;objet <code>dlti</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
+
+H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Poles : {}&#34;</span><span style="color:#f92672">.</span>format(H<span style="color:#f92672">.</span>poles))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Zeros : {}&#34;</span><span style="color:#f92672">.</span>format(H<span style="color:#f92672">.</span>zeros))</code></pre></div>
+<h2 id="réponses-temporelles">Réponses Temporelles</h2>
+<p>Les réponses temporelles (impulsionnelle, indicielle) s&rsquo;obtiennent facilement en utilisant les méthodes <code>impulse</code> ou <code>step</code> de l&rsquo;objet <code>lti</code>. Ces méthodes renvoient deux tableaux <code>numpy</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-Fs <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#75715e"># sampling frequency</span>
-n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(Fs)
-t <span style="color:#f92672">=</span> n<span style="color:#f92672">/</span>Fs
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sin(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>pi<span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">*</span>t)
+H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
 
-<span style="color:#75715e">#plot curve</span>
-plt<span style="color:#f92672">.</span>plot(t,x)
-plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;t [s]&#34;</span>)
-plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;amplitude&#34;</span>)</code></pre></div>
-<div class="text-align:center" style="font-size: 40px">
-To be continued !
-</div>
+n, y <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>step()
+plt<span style="color:#f92672">.</span>step(n, np<span style="color:#f92672">.</span>squeeze(y)) <span style="color:#75715e"># hope scipy will remove this tricky modification !</span>
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Amplitude&#39;</span>)</code></pre></div>
+<h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
+<p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqresp</code> de l&rsquo;objet <code>lti</code>. Cette méthode renvoie deux tableaux <code>numpy</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
+
+H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
+
+w, Hjw <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>freqresp()
+modulus <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(Hjw)
+argument <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>angle(Hjw)
+
+plt<span style="color:#f92672">.</span>figure()
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
+plt<span style="color:#f92672">.</span>plot(w,modulus)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$\Omega$&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Modulus&#39;</span>)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)
+plt<span style="color:#f92672">.</span>plot(w,argument)
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;$\Omega$&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Argument&#39;</span>)</code></pre></div>
+
 <div class="footer-nav">
 
     <div class="next-post align_left">

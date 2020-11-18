@@ -3,26 +3,64 @@ title: "Python Cheatsheet"
 weight: 1
 ---
 
+La librairie Python `scipy` contient tous les outils nécessaire pour l'analyse et l'implémentation des filtres. 
+La fonction `dlti` permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir [doc](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html)). 
 
+## Pôles et des zéros
 
-## Affichage d'une sinusoïde 
+Les pôles et les zéros sont des attributs de l'objet `dlti`.
+
+{{< highlight python >}}
+from scipy import signal
+
+H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+
+print("Poles : {}".format(H.poles))
+print("Zeros : {}".format(H.zeros))
+{{< / highlight >}}
+
+## Réponses Temporelles
+
+Les réponses temporelles (impulsionnelle, indicielle) s'obtiennent facilement en utilisant les méthodes `impulse` ou `step` de l'objet `lti`. Ces méthodes renvoient deux tableaux `numpy`.
+
 
 {{< highlight python >}}
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import signal
 
-Fs = 1000 # sampling frequency
-n = np.arange(Fs)
-t = n/Fs
-x = np.sin(2*np.pi*10*t)
+H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
 
-#plot curve
-plt.plot(t,x)
-plt.xlabel("t [s]")
-plt.ylabel("amplitude")
+n, y = H.step()
+plt.step(n, np.squeeze(y)) # hope scipy will remove this tricky modification !
+plt.grid()
+plt.xlabel('n [samples]')
+plt.ylabel('Amplitude')
 {{< / highlight >}}
 
 
-<div class="text-align:center" style="font-size: 40px">
-To be continued !
-</div>
+## Réponse Fréquentielle
+La réponse fréquentielle s'obtient facilement en utilisant la méthode `freqresp` de l'objet `lti`. Cette méthode renvoie deux tableaux `numpy`.
+
+
+{{< highlight python >}}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
+H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+
+w, Hjw = H.freqresp()
+modulus = np.abs(Hjw)
+argument = np.angle(Hjw)
+
+plt.figure()
+plt.subplot(1,2,1)
+plt.plot(w,modulus)
+plt.xlabel('$\Omega$')
+plt.ylabel('Modulus')
+plt.subplot(1,2,2)
+plt.plot(w,argument)
+plt.xlabel('$\Omega$')
+plt.ylabel('Argument')
+{{< / highlight >}}

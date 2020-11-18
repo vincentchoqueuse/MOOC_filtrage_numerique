@@ -37,11 +37,19 @@ où $*$ désigne le produit de convolution et $h[n]$ correspond à la réponse i
 
 Une grande partie des filtres LTI peut s'exprimer à partir d'une équation aux différences
 
+**Définition** (Equation aux différences)
+<div class="definition" id="eq_dif">
+L'équation aux différences est modélisée par 
 $$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l],$$
 
-où les coefficients réels $b_m$ et $a_l$ correspondent respectivement aux coefficients de la partie non récursive et récursive du filtre. Notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L'ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$. 
+où les coefficients réels $b_m$ et $a_l$ correspondent respectivement aux coefficients de la partie non récursive et récursive du filtre. 
+</div>
 
-La réponse impulsionnelle d'un filtre décrit par une équation aux différences s'obtient en posant $x[n]=\delta[n]$ dans l'équation (\ref{filtre1}). En fonction des coefficients $a_k$, il est alors possible de définir deux grandes catégories de filtres:
+Notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L'ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$. 
+
+## Filtres FIR et IIR
+
+La réponse impulsionnelle d'un filtre décrit par une équation aux différences s'obtient en prenant comme entrée l'impulsion c-a-d $x[n]=\delta[n]$. En fonction des coefficients $a_k$, il est alors possible de définir deux grandes catégories de filtres:
 
 * les filtres à Réponse Impulsionnelle Finie (FIR) pour lesquels $a_l=0$ pour tout $l>0$,
 * les filtres à Réponse Impulsionnelle Infinie (IIR) pour lesquels il existe au moins une valeur de $l$ ($l>0$) telle que $a_l\ne 0$.

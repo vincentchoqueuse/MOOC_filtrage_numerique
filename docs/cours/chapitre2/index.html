@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     
     
-    <title>Filtrage Numérique | Categories</title>
+    <title>Filtrage Numérique | Analyse Fréquentielle</title>
 </head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
   <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
    
@@ -31,7 +31,7 @@
     
     <ul class="menu_nav">
     
-        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
+        <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
         <ul class="sub_menu_nav">
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
@@ -42,6 +42,13 @@
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle</a></li>
              
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#réponse-fréquentielle">Réponse Fréquentielle</a></li>
+    <li><a href="#représentation">Représentation</a></li>
+  </ul>
+</nav>
+                
         
         </ul>
 
@@ -60,19 +67,52 @@
 </aside></div>
             <div class="col-sm-8" id="col2">
                 <div id="content" class="content">
-<main>
-    <article>
-        <header>
-            <h1>Categories</h1>
-        </header>
-        
-    </article>
-    <h2>Content</h2>
-    <ul>
+<h1>Analyse Fréquentielle</h1>
+
+<br>
+<p>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Le succès de ce domaine d&rsquo;analyse est principalement lié à la propriété suivante.</p>
+<p><strong>Propriété</strong></p>
+<div class="propriete">
+La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est une exponentielle complexe de même pulsation multipliée par un coefficient complexe :
+<p>$$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$</p>
+<p>où $H(e^{j\Omega})$ est appelé réponse fréquentielle du système.</p>
+</div>
+<h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
+<p>Mathématiquement, la réponse fréquentielle d&rsquo;un filtre LTI de réponse impulsionnelle $h[n]$ est définie par</p>
+<p>$$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$</p>
+<p><strong>Propriété</strong></p>
+<div class="propriete">
+La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de transfert $H(z)$ sur le cercle de rayon unité c-à-d en posant $z=e^{j\Omega}$.
+</div>
+<p>Comme $H(e^{j\Omega})=H(e^{j(\Omega+2k\pi)})$ ($k \in \mathbb{Z}$), la réponse fréquentielle est $2\pi$-périodique. De plus, lorsque $h[n]\in \mathbb{R}$, il est possible de démontrer que $H(e^{j\omega})=H^{*}(e^{-j\omega})$ (symétrie hermitienne).</p>
+<h2 id="représentation">Représentation</h2>
+<p>La réponse fréquentielle est une quantité généralement complexe. Cette quantité peut se décomposer sous la forme</p>
+<p>$$H(e^{j\Omega})=|H(e^{j\Omega})|e^{j\arg[H(e^{j\Omega})]}$$</p>
+<ul>
+<li>$|H(e^{j\Omega})|$ désigne le module de $H(e^{j\Omega})$</li>
+<li>$\arg[H(e^{j\Omega})]$ désigne l&rsquo;argument de $H(e^{j\Omega})$</li>
+</ul>
+<p>Pour analyser le comportement d&rsquo;un filtre, il est utile de représenter le module et l&rsquo;argument de la réponse fréquentielle en fonction de $\omega$. L&rsquo;affichage du module et de l&rsquo;argument permet d&rsquo;avoir une interprétation concrète de l&rsquo;effet du filtre sur une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$. A titre d&rsquo;illustration, la figure suivante présente le module et l&rsquo;argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons que lorsque l&rsquo;argument est égal à $Arg[H(e^{j\omega})]=-\omega \tau$, ce qui n&rsquo;est pas le cas ici, le filtre est dit à phase linéaire. En pratique, cette propriété est souvent recherchée car elle évite la présence de distorsion de phase.</p>
+<figure>
+    <img src="/MOOC_filtrage_numerique/img/freqresp_filter2.svg" width="960"/> <figcaption>
+            <h4>Réponse fréquentielle du filtre 1</h4>
+        </figcaption>
+</figure>
+
+
+<div class="footer-nav">
+
+    <div class="next-post align_left">
     
+	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/">« Analyse dans le domaine Z</a>
+	  
+    </div>
+
+    <div class="previous-post align_right">
     
-    </ul>
-</main>
+    </div>
+    <div style="clear: both;"></div>
+</div>
 
                  </div>
             </div>

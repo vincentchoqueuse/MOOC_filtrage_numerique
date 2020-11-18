@@ -7,29 +7,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     
     
-    <title>Filtrage Numérique | Analyse des filtres LTI</title>
+    <title>Filtrage Numérique | Analyse dans le domaine Z</title>
 </head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
   <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
    
    <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> OCW</span></a>
+          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> Home</a>
 
         </li>
     </ul>
-    <span class="navbar-text">
-      <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
-    </span>
+    <a class="nav-link" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
+    <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
         <div class="row">
-            <div class="col-sm-2" id="col1">
+            <div class="col-sm-3" id="col1">
 
 <aside class="sidebar" id="sidebar" class="collapse" >
-<h2 class="d-none d-sm-block">Table of Contents</h2>
+<h2 class="d-none d-sm-block">Filtrage Numérique </h2>
 <nav class="sidebar-nav">
     
     <ul class="menu_nav">
@@ -40,15 +37,20 @@
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
         
-            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse des filtres LTI</a></li>
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine Z</a></li>
              
                 <nav id="TableOfContents">
   <ul>
     <li><a href="#transformée-en-z">Transformée en Z</a></li>
+    <li><a href="#fonction-de-transfert">Fonction de transfert</a></li>
     <li><a href="#pôles-et-zéros">Pôles et Zéros</a></li>
+    <li><a href="#stabilité">Stabilité</a></li>
   </ul>
 </nav>
                 
+        
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle</a></li>
+             
         
         </ul>
 
@@ -65,9 +67,9 @@
     </ul>
 </nav>
 </aside></div>
-            <div class="col-sm-9" id="col2">
+            <div class="col-sm-8" id="col2">
                 <div id="content" class="content">
-<h1>Analyse des filtres LTI</h1>
+<h1>Analyse dans le domaine Z</h1>
 
 <br>
 <p>Dans cette section, nous allons introduire les outils nécessaires pour l&rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un exemple de filtre d&rsquo;ordre 2.</p>
@@ -85,7 +87,67 @@ La transformée en $\mathcal{Z}$ d'une suite numérique $x[n]$ est définie par 
 $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$
 où $z$ est une variable complexe.
 </div>
-<p>Il est important de noter que la transformée de $\mathcal{Z}$ d&rsquo;un signal ne converge pas nécessairement quelque soit $z \in \mathbb{Z}$. Il est alors nécessaire de préciser la région de convergence (ROC) pour laquelle la série converge c-a-d les valeurs de $z$ telles que $|X(z)|&lt;\infty$. A titre d&rsquo;illustration, le tableau \ref{app_tabZ} présente les transformées en $\mathcal{Z}$ de plusieurs signaux et leurs regions de convergence associées.</p>
+<p>Il est important de noter que la transformée de $\mathcal{Z}$ d&rsquo;un signal ne converge pas nécessairement quelque soit $z \in \mathbb{Z}$. Il est alors nécessaire de préciser la région de convergence (ROC) pour laquelle la série converge c-a-d les valeurs de $z$ telles que $|X(z)|&lt;\infty$. A titre d&rsquo;illustration, le tableau suivant présente les transformées en $\mathcal{Z}$ de plusieurs signaux et leurs regions de convergence associées.</p>
+<div class="custom-table">
+<table>
+<thead>
+<tr>
+<th>Modèle de Signal</th>
+<th>Transformée en $\mathcal{Z}$</th>
+<th>Région de Convergence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\delta[n]$</td>
+<td>$1$</td>
+<td>$z \in \mathbb{Z}$</td>
+</tr>
+<tr>
+<td>$\delta[n-m]$</td>
+<td>$z^{-m}$</td>
+<td>$z \ne 0$</td>
+</tr>
+<tr>
+<td>$u[n]$</td>
+<td>$\frac{1}{1-z^{-1}}$</td>
+<td>$|z|&gt;1$</td>
+</tr>
+<tr>
+<td>$a^n u[n]$</td>
+<td>$\frac{1}{1-az^{-1}}$</td>
+<td>$|z|&gt;|a|$</td>
+</tr>
+<tr>
+<td>$na^n u[n]$</td>
+<td>$\frac{az^{-1}}{(1-az^{-1})^2}$</td>
+<td>$|z| &gt; |a|$</td>
+</tr>
+<tr>
+<td>$\cos (\omega_0 n)u[n]$</td>
+<td>$\frac{1-\cos(\omega_0)z^{-1}}{1-2\cos(\omega_0)z^{-1}+z^{-2}}$</td>
+<td>$|z| &gt; 1$</td>
+</tr>
+<tr>
+<td>$\sin (\omega_0 n)u[n]$</td>
+<td>$\frac{\sin(\omega_0)z^{-1}}{1-2\cos(\omega_0)z^{-1}+z^{-2}}$</td>
+<td>$|z| &gt; 1$</td>
+</tr>
+<tr>
+<td>$r^n\cos (\omega_0 n)u[n]$</td>
+<td>$\frac{1-r\cos(\omega_0)z^{-1}}{1-2r\cos(\omega_0)z^{-1}+r^2z^{-2}}$</td>
+<td>$|z| &gt; r$</td>
+</tr>
+<tr>
+<td>$r^n\sin (\omega_0 n)u[n]$</td>
+<td>$\frac{r\sin(\omega_0)z^{-1}}{1-2r\cos(\omega_0)z^{-1}+r^2z^{-2}}$</td>
+<td>$|z| &gt; r$</td>
+</tr>
+</tbody>
+</table>
+<figcaption>
+<h4>Quelques transformée en $\mathcal{Z}$ </h4></figcaption>
+</div>
 <p><strong>Propriétés</strong></p>
 <div class="propriete">
  La transformée en $\mathcal{Z}$ possède les propriétés suivantes (les réciproques étant également vraies):
@@ -107,6 +169,7 @@ où $z$ est une variable complexe.
 </figure>
 
 <p>La propriété liée à la convolution montre l&rsquo;importance de la transformée en $\mathcal{Z}$ de la réponse impulsionnelle, $H(z)$. Cette transformée en $\mathcal{Z}$ est appelé fonction de transfert du filtre.</p>
+<h2 id="fonction-de-transfert">Fonction de transfert</h2>
 <p><strong>Définition</strong> (Fonction de Transfert)</p>
 <div class="definition">
 La fonction de transfert d'un filtre correspond à la transformée en $\mathcal{Z}$ de sa réponse impulsionnelle c-a-d
@@ -115,11 +178,14 @@ La fonction de transfert d'un filtre correspond à la transformée en $\mathcal{
 <p>La propriété liée à la convolution montre que la fonction de transfert d&rsquo;un filtre s&rsquo;exprime également sous la forme $H(z)=Y(z)/X(z)$. Pour un filtre décrit par une équation aux différences, cette propriété permet d&rsquo;exprimer la fonction de transfert du filtre en fonction des coefficients des parties récursive $a_l$ et non-recursive $b_m$ du filtre.</p>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
-La fonction de transfert d'un filtre numérique décrit par une équation aux différences s'exprime sous la forme ($a_0\triangleq 1$)
+La fonction de transfert d'un filtre numérique décrit par une <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/#eq_dif">équation aux différences</a> s'exprime sous la forme 
 <p>$$H(z)=\frac{\sum_{m=0}^{M}b_m z^{-m}}{\sum_{l=0}^{L}a_l z^{-l}}=\frac{B(z)}{A(z)}$$</p>
 </div>
-<p>A titre d&rsquo;exemple, il est possible de montrer que la fonction de transfert du filtre 1 est donnée par</p>
+<p><strong>Exemple</strong> (Filtre 1)</p>
+<div class="exemple">
+A titre d'exemple, il est possible de montrer que la fonction de transfert du filtre 1 est donnée par 
 <p>$$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$</p>
+</div>
 <p>La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des &ldquo;pics&rdquo; et des &ldquo;vallées&rdquo;.</p>
 <figure>
     <img src="/MOOC_filtrage_numerique/img/dlti_filter2.png" width="550"/> <figcaption>
@@ -132,25 +198,27 @@ La fonction de transfert d'un filtre numérique décrit par une équation aux di
 <p><strong>Définition</strong> (Pôles et Zéros)</p>
 <div class="definition">
 Une fonction de transfert peut s'exprimer sous forme factorisée de la manière suivante
-<p>$$H(z)=\left(\frac{b_0}{a_0}\right)\frac{\prod_{m=1}^{M}(1-c_m z^{-1})}{\prod_{l=1}^{L}(1-d_l z^{-1})}$$</p>
-<p>où les valeurs $c_m$ et $d_l$ correspondent respectivement aux zéros et aux pôles de la fonction de transfert.</p>
+<p>$$H(z)=K\frac{\prod_{m=1}^{M}(1-z_m z^{-1})}{\prod_{l=1}^{L}(1-p_l z^{-1})}$$</p>
+<p>où les valeurs $z_m$ et $p_l$ correspondent respectivement aux zéros et aux pôles de la fonction de transfert.</p>
 </div>
-<p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des algorithmes numériques. A titre d&rsquo;illustration, la fonction Python <code>root</code> permet d&rsquo;établir que le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugués en $z=0.57\pm 0.29j$. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure \ref{fig_carte_pz} présente la localisation des pôles et des zéros pour le filtre 1.</p>
+<p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des outils numériques. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure \ref{fig_carte_pz} présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués.</p>
+<p><strong>Exemple</strong> (Filtre 1)</p>
+<div class="exemple">
+Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugués en $z=0.57\pm 0.29j$. Les pôles et les zéros de ce filtre sont représentés dans la figure suivante. 
+</div>
 <figure>
     <img src="/MOOC_filtrage_numerique/img/zpk_filter2.svg" width="450"/> <figcaption>
             <h4>Pôles et Zéros du Filtre 2</h4>
         </figcaption>
 </figure>
 
+<h2 id="stabilité">Stabilité</h2>
 <p>La localisation des pôles est directement lié à la stabilité du filtre. De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|&lt;\infty$. La propriété suivante montre que cette propriété est directement liée au module des pôles de la fonction de transfert.</p>
 <p><strong>Propriété</strong> (Stabilité)</p>
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$
-$$|d_l|\le 1.$$
+$$|p_l|\le 1.$$
 </div>
-<p>La figure \ref{fig_pz_imp} présente la localisation des pôles et des zéros ainsi que la réponse impulsionnelle de deux filtres IIR. Le premier filtre est stable car tous ses pôles sont inclus dans le cercle de rayon unité. A l&rsquo;inverse, le second filtre est instable car il possède un pôle en $z=-1.4$ dont le module est supérieur à 1. Pour ce second filtre, nous constatons que la réponse impulsionnelle semble tendre vers des valeurs infinies.</p>
-<div class="text-align:center" style="font-size: 40px">
-To be continued !
-</div>
+
 <div class="footer-nav">
 
     <div class="next-post align_left">
@@ -161,6 +229,8 @@ To be continued !
 
     <div class="previous-post align_right">
     
+	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle »</a>
+	  
     </div>
     <div style="clear: both;"></div>
 </div>
