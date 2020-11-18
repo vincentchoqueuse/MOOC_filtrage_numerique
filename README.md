@@ -16,3 +16,21 @@ A minimal website generator based on hugo well suited for scientific courses.
 * Responsive website using bootstrap 
 * Site Hosted on github page 
 
+## How to use it 
+
+### Local deployment
+
+* install hugo 
+* run `hugo server`
+
+
+### Github hosting
+
+* generate website `hugo`
+* push on github
+
+```
+git add .
+git commit -m "mon site"
+git push -u origin master
+```
