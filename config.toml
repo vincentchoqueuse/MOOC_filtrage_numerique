@@ -10,6 +10,8 @@ sectionPagesMenu = "main"
   GitHub = "https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"
   cover = "cover.jpg"
   email = "choqueuse@enib.fr"
+  summary = "Cette page contient un support de cours pour l'enseignement du filtrage numérique."
+
 
 [markup]
   [markup.goldmark]

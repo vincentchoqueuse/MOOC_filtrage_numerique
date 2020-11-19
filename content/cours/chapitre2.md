@@ -11,12 +11,12 @@ La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de
 
 $$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$
 
-où $H(e^{j\Omega})$ est appelé réponse fréquentielle du système. 
+où le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du système. 
 </div>
 
 ## Réponse Fréquentielle
 
-Mathématiquement, la réponse fréquentielle d'un filtre LTI de réponse impulsionnelle $h[n]$ est définie par
+La réponse fréquentielle d'un filtre LTI de réponse impulsionnelle $h[n]$ est définie par
 
 $$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$
 
@@ -38,6 +38,15 @@ $$H(e^{j\Omega})=|H(e^{j\Omega})|e^{j\arg[H(e^{j\Omega})]}$$
 * $|H(e^{j\Omega})|$ désigne le module de $H(e^{j\Omega})$
 * $\arg[H(e^{j\Omega})]$ désigne l'argument de $H(e^{j\Omega})$
 
-Pour analyser le comportement d'un filtre, il est utile de représenter le module et l'argument de la réponse fréquentielle en fonction de $\omega$. L'affichage du module et de l'argument permet d'avoir une interprétation concrète de l'effet du filtre sur une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$. A titre d'illustration, la figure suivante présente le module et l'argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons que lorsque l'argument est égal à $Arg[H(e^{j\omega})]=-\omega \tau$, ce qui n'est pas le cas ici, le filtre est dit à phase linéaire. En pratique, cette propriété est souvent recherchée car elle évite la présence de distorsion de phase.
+Pour analyser le comportement d'un filtre, il est utile de représenter le module et l'argument de la réponse fréquentielle en fonction de $\Omega$. L'affichage du module et de l'argument permet d'avoir une interprétation concrète de l'effet du filtre sur le contenu fréquentiel d'une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$. 
 
-{{< figure src="/MOOC_filtrage_numerique/img/freqresp_filter2.svg" title="Réponse fréquentielle du filtre 1" width="960" >}}
+A titre d'illustration, la figure suivante présente le module et l'argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons également que  la phase n'est pas linéaire.
+
+<div class="row">
+    <div class="col-lg-6 col-md-12">
+{{< figure src="/MOOC_filtrage_numerique/img/freq_response_abs.svg" title="Réponse fréquentielle : Module filtre 1" width="100%" >}}
+    </div>
+    <div class="col-lg-6 col-md-12">
+{{< figure src="/MOOC_filtrage_numerique/img/freq_response_angle.svg" title="Réponse fréquentielle : Argument du filtre 1" width="100%" >}}
+    </div>
+</div>

@@ -1,9 +1,9 @@
 ---
-title: "Analyse dans le domaine Z"
+title: "Analyse dans le domaine en Z"
 weight: 3
 ---
 
-Dans cette section, nous allons introduire les outils nécessaires pour l'analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un exemple de filtre d'ordre 2.
+Dans cette section, nous allons introduire les outils nécessaires pour l'analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un filtre d'ordre 2.
 
 **Exemple** (Filtre 1)
 <div class="exemple">
@@ -22,7 +22,7 @@ $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$
 où $z$ est une variable complexe.
 </div>
 
-Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne converge pas nécessairement quelque soit $z \in \mathbb{Z}$. Il est alors nécessaire de préciser la région de convergence (ROC) pour laquelle la série converge c-a-d les valeurs de $z$ telles que $|X(z)|<\infty$. A titre d'illustration, le tableau suivant présente les transformées en $\mathcal{Z}$ de plusieurs signaux et leurs regions de convergence associées.
+Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne converge pas nécessairement pour tout $z \in \mathbb{Z}$. Il est alors nécessaire de préciser la région de convergence (ROC) pour laquelle la série converge c-a-d les valeurs de $z$ telles que $|X(z)|<\infty$. A titre d'illustration, le tableau suivant présente les transformées en $\mathcal{Z}$ de plusieurs signaux et leurs régions de convergence associées.
 
 
 <div class="custom-table">
@@ -41,12 +41,11 @@ Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne co
 
 <figcaption>
 <h4>Quelques transformée en $\mathcal{Z}$ </h4></figcaption>
-
 </div>
 
 **Propriétés** 
 <div class="propriete">
- La transformée en $\mathcal{Z}$ possède les propriétés suivantes (les réciproques étant également vraies):
+ La transformée en $\mathcal{Z}$ possède les propriétés suivantes: 
 <br>
 <br>
 
@@ -57,15 +56,13 @@ Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne co
 * Théorème de la valeur finale: $\lim_{n\to \infty} x[n]=\lim_{z\to 1}(z-1)X(z)$.
 </div>
 
-La propriété liée au décalage temporel indique qu'un retard d'un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l'équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ introduisent un retard d'un échantillon. A titre d'exemple, la figure \ref{fig_schema} présente le schéma bloc du filtre~1.
-
+La propriété liée au décalage temporel indique qu'un retard d'un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l'équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d'un échantillon. A titre d'exemple, la figure suivante présente le schéma bloc du filtre~1.
 
 {{< figure src="/MOOC_filtrage_numerique/img/fig2.svg" title="Schéma bloc du filtre 1" width="450" >}}
 
-
-La propriété liée à la convolution montre l'importance de la transformée en $\mathcal{Z}$ de la réponse impulsionnelle, $H(z)$. Cette transformée en $\mathcal{Z}$ est appelé fonction de transfert du filtre. 
-
 ## Fonction de transfert
+
+La propriété liée à la convolution montre la transformée en $\mathcal{Z}$ permet de transformer un produit de convolution en un produit simple. Dans le domaine en $\mathcal{Z}$, la sortie s'exprime alors simplement comme le produit entre la transformée en $\mathcal{Z}$ de la réponse impulsionnelle et la transformée en $\mathcal{Z}$ de l'entrée. La transformée en $\mathcal{Z}$ de la réponse impulsionnelle est appelé fonction de transfert du filtre. 
 
 
 **Définition** (Fonction de Transfert)
@@ -75,7 +72,7 @@ La fonction de transfert d'un filtre correspond à la transformée en $\mathcal{
 $$H(z)=\sum_{n=-\infty}^{\infty}h[n]z^{-n}$$
 </div>
 
-La propriété liée à la convolution montre que la fonction de transfert d'un filtre s'exprime également sous la forme $H(z)=Y(z)/X(z)$. Pour un filtre décrit par une équation aux différences, cette propriété permet d'exprimer la fonction de transfert du filtre en fonction des coefficients des parties récursive $a_l$ et non-recursive $b_m$ du filtre.
+La fonction de transfert d'un filtre s'exprime également sous la forme $H(z)=Y(z)/X(z)$. Pour un filtre décrit par une équation aux différences, cette propriété permet d'exprimer la fonction de transfert du filtre en fonction des coefficients des parties récursive $a_l$ et non-recursive $b_m$ du filtre.
 
 
 **Propriété** 
@@ -92,31 +89,32 @@ A titre d'exemple, il est possible de montrer que la fonction de transfert du fi
 $$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$
 </div>
 
-La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des "pics" et des "vallées". 
+La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des "pics" et des "vallées". Le "relief" de la fonction de transfert est directement lié au comportement du filtre.
 
 {{< figure src="/MOOC_filtrage_numerique/img/dlti_filter2.png" title="Module de la fonction de transfert $H(z)$" width="550" >}}
 
 
 ## Pôles et Zéros
 
-Pour mettre en évidence les comportements singuliers de la fonction de transfert, il est possible de réexprimer la fonction de transfert sous une forme factorisée. La forme factorisée donne explicitement les valeurs de $z$ pour lesquelles $H(z)$ tend vers $0$ (zéros) et les valeurs de $z$ pour lesquelles $H(z)$ tend vers l'infini (pôles). 
+Pour mettre en évidence le relief de la fonction de transfert, il est possible de réexprimer la fonction de transfert sous une forme factorisée. 
 
 **Définition** (Pôles et Zéros)
 <div class="definition">
 Une fonction de transfert peut s'exprimer sous forme factorisée de la manière suivante
 
 $$H(z)=K\frac{\prod_{m=1}^{M}(1-z_m z^{-1})}{\prod_{l=1}^{L}(1-p_l z^{-1})}$$
-
-où les valeurs $z_m$ et $p_l$ correspondent respectivement aux zéros et aux pôles de la fonction de transfert.
 </div>
 
+* Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0).
+* Les valeurs $p_l$ correspondent aux poles de la fonction de transfert ($H(z)=\pm \infty$).
 
-En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Il est courant de représenter la localisation des pôles et des zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement conjugués. 
+
+En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réel ou complexes-conjugués. 
 
 
 **Exemple** (Filtre 1)
 <div class="exemple">
-Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugués en $z=0.57\pm 0.29j$. Les pôles et les zéros de ce filtre sont représentés dans la figure suivante. 
+Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugués en $z=0.57\pm 0.29j$. Les pôles et les zéros de ce filtre sont représentés dans la figure suivante. 
 </div>
 
 {{< figure src="/MOOC_filtrage_numerique/img/zpk_filter2.svg" title="Pôles et Zéros du Filtre 2" width="450" >}}
@@ -124,8 +122,7 @@ Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes conjugu�
 
 ## Stabilité
 
-La localisation des pôles est directement lié à la stabilité du filtre. De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|<\infty$. La propriété suivante montre que cette propriété est directement liée au module des pôles de la fonction de transfert.
-
+De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|<\infty$. Il est possible d'établir que la stabilité d'un filtre numérique dépend directement de la localisation de ses pôles. Nous retiendrons en particulier la propriété suivante.
 
 **Propriété** (Stabilité)
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$

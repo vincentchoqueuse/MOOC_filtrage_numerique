@@ -45,7 +45,7 @@
 </nav>
                 
         
-            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine Z</a></li>
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine en Z</a></li>
              
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle</a></li>
@@ -71,7 +71,7 @@
 <h1>Introduction</h1>
 
 <br>
-<p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus simples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce document, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie. Ces filtres sont couramment utilisés dans un large panel d&rsquo;applications.</p>
+<p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce support de cours, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie (SISO: Single-Input Single-Output). Ces filtres sont couramment utilisés dans un large panel d&rsquo;applications.</p>
 <h2 id="modélisation">Modélisation</h2>
 <p>Un filtre numérique peut être modélisé par une fonction mathématique prenant en entrée un signal numérique et renvoyant en sortie un signal numérique. Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$).</p>
 <figure>
@@ -80,32 +80,37 @@
         </figcaption>
 </figure>
 
-<p>Dans ce cours, nous allons nous intéresser à la classe des filtres dits linéaires et invariant dans le temps (LTI).</p>
+<p>Dans ce cours, nous allons nous intéresser à la classe des filtres dits linéaires et invariants dans le temps (LTI).</p>
 <p><strong>Définition</strong> (Filtre LTI)</p>
-<div class="definition">
+<div class="propriete">
 Un filtre LTI respecte les propriétés suivantes:
 <ul>
 <li>Linéarité: Si l&rsquo;entrée du filtre est égale à $x[n]=\alpha x_1[n]+\beta x_2[n]$, alors $y[n]=\alpha y_1[n]+\beta y_2[n]$.</li>
 <li>Invariance dans le temps: Si l&rsquo;entrée du filtre est égale à $x[n]=x_1[n-\tau]$ ($\tau \in \mathbb{Z}$), alors $y[n]=y_1[n-\tau]$.</li>
 </ul>
 </div>
-<p>Un filtre LTI est entièrement décrit par sa réponse à une entrée de type impulsion ($x[n]=\delta[n]$). La réponse à une entrée de type impulsion est appelée réponse impulsionnelle et est notée $h[n]$. Lorsque l&rsquo;entrée est un signal quelconque, la propriété suivante montre que la sortie du filtre s&rsquo;obtient en convoluant l&rsquo;entrée avec la réponse impulsionnelle du filtre.</p>
+<p>En utilisant les deux propriétés précédentes, il est possible d&rsquo;établir qu&rsquo;un filtre LTI est entièrement décrit par sa réponse à une entrée de type impulsion ($x[n]=\delta[n]$). La réponse à une entrée de type impulsion est appelée réponse impulsionnelle et est notée $h[n]$.</p>
+<p>Lorsque l&rsquo;entrée est un signal quelconque, la sortie du filtre s&rsquo;obtient en utilisant un produit de convolution.</p>
 <p><strong>Propriété</strong></p>
 <div class="definition">
 Lorsqu'un signal $x[n]$ est envoyé à l'entrée d'un filtre LTI, la sortie s'exprime sous la forme
 $$y[n]=x[n]*h[n] \triangleq \sum_{k=-\infty}^{\infty}x[k]h[n-k]$$
-où $*$ désigne le produit de convolution et $h[n]$ correspond à la réponse impulsionnelle du filtre.
+où $*$ désigne le produit de convolution.
 </div>
-<p>Une grande partie des filtres LTI peut s&rsquo;exprimer à partir d&rsquo;une équation aux différences</p>
+<p>Une grande catégorie de filtres LTI peut se modéliser par une équation aux différences.</p>
 <p><strong>Définition</strong> (Equation aux différences)</p>
 <div class="definition" id="eq_dif">
 L'équation aux différences est modélisée par 
 $$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l],$$
-<p>où les coefficients réels $b_m$ et $a_l$ correspondent respectivement aux coefficients de la partie non récursive et récursive du filtre.</p>
 </div>
-<p>Notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$.</p>
+<p>Dans l&rsquo;équation aux différences :</p>
+<ul>
+<li>les coefficients réels $b_m$ correspondent à la partie non-récursive du filtre,</li>
+<li>les coefficients réels $a_l$ correspondent à la partie récursive du filtre.</li>
+</ul>
+<p>Dans l&rsquo;équation aux différences, notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$.</p>
 <h2 id="filtres-fir-et-iir">Filtres FIR et IIR</h2>
-<p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient en prenant comme entrée l&rsquo;impulsion c-a-d $x[n]=\delta[n]$. En fonction des coefficients $a_k$, il est alors possible de définir deux grandes catégories de filtres:</p>
+<p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient en prenant comme entrée l&rsquo;impulsion c-a-d $x[n]=\delta[n]$ et en fixant $y[n]=0$ pour $n&lt;0$. Il est alors possible de définir deux grandes catégories de filtres :</p>
 <ul>
 <li>les filtres à Réponse Impulsionnelle Finie (FIR) pour lesquels $a_l=0$ pour tout $l&gt;0$,</li>
 <li>les filtres à Réponse Impulsionnelle Infinie (IIR) pour lesquels il existe au moins une valeur de $l$ ($l&gt;0$) telle que $a_l\ne 0$.</li>
@@ -125,7 +130,7 @@ $$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l],$$
 
     <div class="previous-post align_right">
     
-	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine Z »</a>
+	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine en Z »</a>
 	  
     </div>
     <div style="clear: both;"></div>

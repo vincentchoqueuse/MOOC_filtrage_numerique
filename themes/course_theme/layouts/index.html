@@ -3,7 +3,5 @@
 
 <p>{{.Site.Params.AuthorName}} (<a href="mailto:{{.Site.Params.email}}">{{.Site.Params.email}}</a>)
 </p>
-<figure>
-<img src="{{ .Site.BaseURL }}img/{{.Site.Params.cover}}" class="cover figure-img img-fluid rounded"> </img>
-</figure>
+{{.Site.Params.summary}}
 {{ end }}

@@ -37,7 +37,7 @@
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
         
-            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine Z</a></li>
+            <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/"> Analyse dans le domaine en Z</a></li>
              
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/"> Analyse Fréquentielle</a></li>
@@ -75,10 +75,10 @@
 <div class="propriete">
 La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est une exponentielle complexe de même pulsation multipliée par un coefficient complexe :
 <p>$$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$</p>
-<p>où $H(e^{j\Omega})$ est appelé réponse fréquentielle du système.</p>
+<p>où le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du système.</p>
 </div>
 <h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
-<p>Mathématiquement, la réponse fréquentielle d&rsquo;un filtre LTI de réponse impulsionnelle $h[n]$ est définie par</p>
+<p>La réponse fréquentielle d&rsquo;un filtre LTI de réponse impulsionnelle $h[n]$ est définie par</p>
 <p>$$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$</p>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
@@ -92,19 +92,32 @@ La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de
 <li>$|H(e^{j\Omega})|$ désigne le module de $H(e^{j\Omega})$</li>
 <li>$\arg[H(e^{j\Omega})]$ désigne l&rsquo;argument de $H(e^{j\Omega})$</li>
 </ul>
-<p>Pour analyser le comportement d&rsquo;un filtre, il est utile de représenter le module et l&rsquo;argument de la réponse fréquentielle en fonction de $\omega$. L&rsquo;affichage du module et de l&rsquo;argument permet d&rsquo;avoir une interprétation concrète de l&rsquo;effet du filtre sur une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$. A titre d&rsquo;illustration, la figure suivante présente le module et l&rsquo;argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons que lorsque l&rsquo;argument est égal à $Arg[H(e^{j\omega})]=-\omega \tau$, ce qui n&rsquo;est pas le cas ici, le filtre est dit à phase linéaire. En pratique, cette propriété est souvent recherchée car elle évite la présence de distorsion de phase.</p>
+<p>Pour analyser le comportement d&rsquo;un filtre, il est utile de représenter le module et l&rsquo;argument de la réponse fréquentielle en fonction de $\Omega$. L&rsquo;affichage du module et de l&rsquo;argument permet d&rsquo;avoir une interprétation concrète de l&rsquo;effet du filtre sur le contenu fréquentiel d&rsquo;une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$.</p>
+<p>A titre d&rsquo;illustration, la figure suivante présente le module et l&rsquo;argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons également que  la phase n&rsquo;est pas linéaire.</p>
+<div class="row">
+    <div class="col-lg-6 col-md-12">
 <figure>
-    <img src="/MOOC_filtrage_numerique/img/freqresp_filter2.svg" width="960"/> <figcaption>
-            <h4>Réponse fréquentielle du filtre 1</h4>
+    <img src="/MOOC_filtrage_numerique/img/freq_response_abs.svg" width="100%"/> <figcaption>
+            <h4>Réponse fréquentielle : Module filtre 1</h4>
         </figcaption>
 </figure>
 
+    </div>
+    <div class="col-lg-6 col-md-12">
+<figure>
+    <img src="/MOOC_filtrage_numerique/img/freq_response_angle.svg" width="100%"/> <figcaption>
+            <h4>Réponse fréquentielle : Argument du filtre 1</h4>
+        </figcaption>
+</figure>
+
+    </div>
+</div>
 
 <div class="footer-nav">
 
     <div class="next-post align_left">
     
-	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/">« Analyse dans le domaine Z</a>
+	  <a class="link-reverse" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/">« Analyse dans le domaine en Z</a>
 	  
     </div>
 

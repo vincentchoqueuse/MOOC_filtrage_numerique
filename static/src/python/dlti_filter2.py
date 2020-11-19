@@ -3,6 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.colors as colors
 from matplotlib import cm
 import numpy as np
+import os
 
 #create system
 num = [0.065,0.13,0.065]
@@ -26,5 +27,6 @@ ax.view_init(elev=44,azim=45)
 
 plt.xlabel("Real Part")
 plt.ylabel("Imaginary Part")
-plt.savefig("./dlti_filter2.png") # export
-plt.show()
+
+filename = os.path.basename(__file__).replace(".py","")
+plt.savefig("../../img/{}.png".format(filename)) 
