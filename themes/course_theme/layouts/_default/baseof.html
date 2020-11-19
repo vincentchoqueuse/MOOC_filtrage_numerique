@@ -4,11 +4,11 @@
     <body>
         {{- partial "header.html" . -}}
         <main role="main" class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3" id="col1">
+        <div class="row" id="main-row">
+            <div id="col1">
             {{- partial "sidebar.html" . -}}
             </div>
-            <div class="col-sm-8" id="col2">
+            <div id="col2" class="container">
                 <div id="content" class="content">
                 {{- block "main" . }}{{- end }}
                  </div>

@@ -105,7 +105,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
 $$H(z)=K\frac{\prod_{m=1}^{M}(1-z_m z^{-1})}{\prod_{l=1}^{L}(1-p_l z^{-1})}$$
 </div>
 
-* Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0).
+* Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0$).
 * Les valeurs $p_l$ correspondent aux poles de la fonction de transfert ($H(z)=\pm \infty$).
 
 

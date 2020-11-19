@@ -44,10 +44,9 @@ La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/</guid>
-      <description>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Le succès de ce domaine d&amp;rsquo;analyse est principalement lié à la propriété suivante.
-Propriété
-La réponse d&#39;un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est une exponentielle complexe de même pulsation multipliée par un coefficient complexe : $$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$
-où le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du système.</description>
+      <description>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine d&amp;rsquo;analyser permet de comprendre rapidement l&amp;rsquo;impact d&amp;rsquo;un filtre sur le contenu fréquentiel d&amp;rsquo;un signal.
+Réponse Fréquentielle Propriété
+La réponse d&#39;un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est donnée par $y[n]=H(e^{j\Omega}) e^{jn\Omega} $ où $$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$  Le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du filtre.</description>
     </item>
     
   </channel>

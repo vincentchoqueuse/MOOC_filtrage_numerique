@@ -4,4 +4,12 @@
 <p>{{.Site.Params.AuthorName}} (<a href="mailto:{{.Site.Params.email}}">{{.Site.Params.email}}</a>)
 </p>
 {{.Site.Params.summary}}
+
+<h2>Content</h2>
+
+<ul>
+    {{ range .Site.Menus.main }}    
+        <li ><a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+    {{ end }}
+</ul>
 {{ end }}

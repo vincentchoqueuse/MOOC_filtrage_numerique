@@ -11,26 +11,27 @@
     
     <title>Filtrage Numérique | Analyse dans le domaine en Z</title>
 </head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
-  <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
-   
+  <button class="btn" id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
+  <button class="btn" id="btn-toc"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" id="nav-button"></button> 
    <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> Home</a>
+          <span class="navbar-brand">Filtrage Numérique</span>
 
         </li>
     </ul>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique/blob/master/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3" id="col1">
+        <div class="row" id="main-row">
+            <div id="col1">
 
 <aside class="sidebar" id="sidebar" class="collapse" >
 <h2 class="d-none d-sm-block">Filtrage Numérique </h2>
 <nav class="sidebar-nav">
     
     <ul class="menu_nav">
-    
+        <li> <a class="sidebar-nav-item" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
+        
         <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
         <ul class="sub_menu_nav">
         
@@ -67,7 +68,7 @@
     </ul>
 </nav>
 </aside></div>
-            <div class="col-sm-8" id="col2">
+            <div id="col2" class="container">
                 <div id="content" class="content">
 <h1>Analyse dans le domaine en Z</h1>
 
@@ -201,7 +202,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
 <p>$$H(z)=K\frac{\prod_{m=1}^{M}(1-z_m z^{-1})}{\prod_{l=1}^{L}(1-p_l z^{-1})}$$</p>
 </div>
 <ul>
-<li>Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0).</li>
+<li>Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0$).</li>
 <li>Les valeurs $p_l$ correspondent aux poles de la fonction de transfert ($H(z)=\pm \infty$).</li>
 </ul>
 <p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réel ou complexes-conjugués.</p>

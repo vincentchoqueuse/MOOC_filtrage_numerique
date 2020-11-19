@@ -3,22 +3,17 @@ title: "Analyse Fréquentielle"
 weight: 4
 ---
 
-Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Le succès de ce domaine d'analyse est principalement lié à la propriété suivante.
-
-**Propriété** 
-<div class="propriete">
-La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est une exponentielle complexe de même pulsation multipliée par un coefficient complexe :
-
-$$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$
-
-où le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du système. 
-</div>
+Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine d'analyser permet de comprendre rapidement l'impact d'un filtre sur le contenu fréquentiel d'un signal.
 
 ## Réponse Fréquentielle
 
-La réponse fréquentielle d'un filtre LTI de réponse impulsionnelle $h[n]$ est définie par
-
+**Propriété** 
+<div class="propriete">
+La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est donnée par $y[n]=H(e^{j\Omega}) e^{jn\Omega} $ où 
 $$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$
+</div>
+
+Le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du filtre.
 
 **Propriété** 
 <div class="propriete">

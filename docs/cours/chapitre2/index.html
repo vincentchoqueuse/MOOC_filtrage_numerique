@@ -11,26 +11,27 @@
     
     <title>Filtrage Numérique | Analyse Fréquentielle</title>
 </head><body><nav class="navbar fixed-top navbar-expand-md custom-navbar">
-  <button class="btn"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
-   
+  <button class="btn" id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
+  <button class="btn" id="btn-toc"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" id="nav-button"></button> 
    <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-          <a class="navbar-brand" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/"> Home</a>
+          <span class="navbar-brand">Filtrage Numérique</span>
 
         </li>
     </ul>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique/blob/master/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3" id="col1">
+        <div class="row" id="main-row">
+            <div id="col1">
 
 <aside class="sidebar" id="sidebar" class="collapse" >
 <h2 class="d-none d-sm-block">Filtrage Numérique </h2>
 <nav class="sidebar-nav">
     
     <ul class="menu_nav">
-    
+        <li> <a class="sidebar-nav-item" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
+        
         <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
         <ul class="sub_menu_nav">
         
@@ -65,21 +66,19 @@
     </ul>
 </nav>
 </aside></div>
-            <div class="col-sm-8" id="col2">
+            <div id="col2" class="container">
                 <div id="content" class="content">
 <h1>Analyse Fréquentielle</h1>
 
 <br>
-<p>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Le succès de ce domaine d&rsquo;analyse est principalement lié à la propriété suivante.</p>
+<p>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine d&rsquo;analyser permet de comprendre rapidement l&rsquo;impact d&rsquo;un filtre sur le contenu fréquentiel d&rsquo;un signal.</p>
+<h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
-La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est une exponentielle complexe de même pulsation multipliée par un coefficient complexe :
-<p>$$y[n]=H(e^{j\Omega}) e^{jn\Omega} $$</p>
-<p>où le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du système.</p>
+La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est donnée par $y[n]=H(e^{j\Omega}) e^{jn\Omega} $ où 
+$$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$
 </div>
-<h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
-<p>La réponse fréquentielle d&rsquo;un filtre LTI de réponse impulsionnelle $h[n]$ est définie par</p>
-<p>$$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$</p>
+<p>Le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du filtre.</p>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
 La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de transfert $H(z)$ sur le cercle de rayon unité c-à-d en posant $z=e^{j\Omega}$.

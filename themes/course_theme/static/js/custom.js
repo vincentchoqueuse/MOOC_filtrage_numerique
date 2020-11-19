@@ -1,16 +1,4 @@
-var menu="true";
 
-function switch_col()
-{
-  var col1 = element = document.getElementById("col1");
-  var col2 = element = document.getElementById("col2");
-
-  col1.classList.toggle('col-sm-2');
-  col1.classList.toggle('d-none');
-  col2.classList.toggle('col-sm-8');
-  col2.classList.toggle('col-lg-8');
-  col2.classList.toggle('offset-lg-2');
-}
 
 document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, 
@@ -21,29 +9,31 @@ document.addEventListener("DOMContentLoaded", function() {
             {left: "\\(", right: "\\)", display: false},
             {left: "\\[", right: "\\]", display: true}
           ]
-      });
+      })
+  }
+);
 
-    //get local storage for menu
-    if (typeof(Storage) !== "undefined") {
-      if (localStorage.menu)
-      {
-        menu = localStorage.getItem("menu");
-        if (menu=="false")
-        {
-          switch_col();
-        }
-      }
-    }
-    }
-  );
+function change_toc()
+{
+    var row = element = document.getElementById("main-row");
+    row.classList.toggle('toc');
+
+    var btn_toc = document.getElementById("btn-toc");
+    btn_toc.classList.toggle('toc');
+
+    var btn_content = document.getElementById("btn-content");
+    btn_content.classList.toggle('toc');
+}
 
 document.addEventListener('click', function (event) {
     // If the clicked element doesn't have the right selector, bail
     if (event.target.id != 'nav-button') return;
-
     event.preventDefault();
-    menu = (menu == "true") ? "false" : "true";
-    switch_col()
-    localStorage.setItem("menu",menu);
-
+    change_toc();
     }, false);
+
+document.getElementById("TableOfContents").addEventListener('click', function (event) {
+  change_toc();
+  }, false);
+
+

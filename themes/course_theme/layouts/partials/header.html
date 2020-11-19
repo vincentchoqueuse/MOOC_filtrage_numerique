@@ -1,9 +1,9 @@
 <nav class="navbar fixed-top navbar-expand-md custom-navbar">
-  <button class="btn"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
-   
+  <button class="btn" id="btn-content"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
+  <button class="btn" id="btn-toc"><img src="{{ .Site.BaseURL }}img/x.svg" width="24px" id="nav-button"></button> 
    <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
-          <a class="navbar-brand" href="{{ .Site.BaseURL }}"> Home</a>
+          <span class="navbar-brand">{{ .Site.Title}}</span>
 
         </li>
     </ul>
