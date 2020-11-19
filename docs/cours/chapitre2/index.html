@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
+    <link rel="icon" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique//css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     
     
@@ -19,7 +20,6 @@
 
         </li>
     </ul>
-    <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique/blob/master/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
         <div class="row" id="main-row">
@@ -71,19 +71,27 @@
 <h1>Analyse Fréquentielle</h1>
 
 <br>
-<p>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine d&rsquo;analyser permet de comprendre rapidement l&rsquo;impact d&rsquo;un filtre sur le contenu fréquentiel d&rsquo;un signal.</p>
+<p>Le domaine fréquentiel est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine présente l&rsquo;avantage de mettre en évidence l&rsquo;impact d&rsquo;un filtre sur le contenu fréquentiel d&rsquo;un signal.</p>
 <h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
-<p><strong>Propriété</strong></p>
-<div class="propriete">
-La réponse d'un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est donnée par $y[n]=H(e^{j\Omega}) e^{jn\Omega} $ où 
-$$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$
-</div>
-<p>Le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du filtre.</p>
+<p>La sortie d&rsquo;un filtre LTI s&rsquo;exprime comme un produit de convolution entre l&rsquo;entée $x[n]$ et la réponse impulsionnelle du filtre $h[n]$. Pour certaines entrées, la sortie peut se déterminer plus facilement. En particulier, lorsque l&rsquo;entrée du filtre est une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ [rad/ech], la sortie s&rsquo;exprime sous la forme :</p>
+<p>$$
+\begin{aligned}
+y[n]&amp;=\sum_{k=-\infty}^{\infty}h[k]x[n-k]\\
+&amp;=\sum_{k=-\infty}^{\infty}h[k]e^{j(n-k)\Omega}\\
+&amp;=e^{jn\Omega}\sum_{k=-\infty}^{\infty}h[k]e^{-jk\Omega}\\
+&amp;=H(e^{j\Omega})x[n]
+\end{aligned}
+$$</p>
+<p>Cette dernière expression montre que les exponentielles complexes sont les fonctions propres du produit de convolution. Le coefficient complexe $H(e^{j\Omega})$ obtenu dans la dernière égalité est appelé <strong>réponse fréquentielle</strong> du filtre.</p>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
 La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de transfert $H(z)$ sur le cercle de rayon unité c-à-d en posant $z=e^{j\Omega}$.
 </div>
-<p>Comme $H(e^{j\Omega})=H(e^{j(\Omega+2k\pi)})$ ($k \in \mathbb{Z}$), la réponse fréquentielle est $2\pi$-périodique. De plus, lorsque $h[n]\in \mathbb{R}$, il est possible de démontrer que $H(e^{j\omega})=H^{*}(e^{-j\omega})$ (symétrie hermitienne).</p>
+<p><strong>Remarques</strong></p>
+<ul>
+<li>Périodicité : la réponse fréquentielle est $2\pi$-périodique ($H(e^{j\Omega})=H(e^{j(\Omega+2k\pi)})$ pour tout $k \in \mathbb{Z}$).</li>
+<li>Symétrie Hermitienne : Lorsque $h[n]\in \mathbb{R}$, $H(e^{j\omega})=H^{*}(e^{-j\omega})$.</li>
+</ul>
 <h2 id="représentation">Représentation</h2>
 <p>La réponse fréquentielle est une quantité généralement complexe. Cette quantité peut se décomposer sous la forme</p>
 <p>$$H(e^{j\Omega})=|H(e^{j\Omega})|e^{j\arg[H(e^{j\Omega})]}$$</p>
@@ -91,8 +99,8 @@ La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de
 <li>$|H(e^{j\Omega})|$ désigne le module de $H(e^{j\Omega})$</li>
 <li>$\arg[H(e^{j\Omega})]$ désigne l&rsquo;argument de $H(e^{j\Omega})$</li>
 </ul>
-<p>Pour analyser le comportement d&rsquo;un filtre, il est utile de représenter le module et l&rsquo;argument de la réponse fréquentielle en fonction de $\Omega$. L&rsquo;affichage du module et de l&rsquo;argument permet d&rsquo;avoir une interprétation concrète de l&rsquo;effet du filtre sur le contenu fréquentiel d&rsquo;une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage (retard) $Arg[H(e^{j\Omega})]$.</p>
-<p>A titre d&rsquo;illustration, la figure suivante présente le module et l&rsquo;argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Notons également que  la phase n&rsquo;est pas linéaire.</p>
+<p>Pour analyser le comportement d&rsquo;un filtre, il est utile de représenter le module et l&rsquo;argument de la réponse fréquentielle en fonction de $\Omega$. L&rsquo;affichage du module et de l&rsquo;argument permet d&rsquo;avoir une interprétation concrète de l&rsquo;effet du filtre sur le contenu fréquentiel d&rsquo;une entrée quelconque. En effet à la pulsation $\Omega$, le filtre va appliquer un gain $|H(e^{j\Omega})|$ et un déphasage $Arg[H(e^{j\Omega})]$.</p>
+<p>A titre d&rsquo;illustration, la figure suivante présente le module et l&rsquo;argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Nous pouvons également noté la présence de distorsion de phase puisque la phase n&rsquo;est pas linéaire en fonction de la pulsation.</p>
 <div class="row">
     <div class="col-lg-6 col-md-12">
 <figure>

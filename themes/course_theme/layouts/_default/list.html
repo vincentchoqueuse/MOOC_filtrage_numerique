@@ -10,7 +10,7 @@
     <ul>
     <!-- Ranges through content/posts/*.md -->
     {{ range $index, $element := .Pages }}
-        <li>Chapter {{ $index }}: <a href="{{.Permalink}}"> {{.Title}}</a>
+        <li>Part {{ $index }} : <a href="{{.Permalink}}"> {{.Title}}</a>
         </li>
     {{ end }}
     </ul>

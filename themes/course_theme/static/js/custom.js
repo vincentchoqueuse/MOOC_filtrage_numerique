@@ -9,7 +9,17 @@ document.addEventListener("DOMContentLoaded", function() {
             {left: "\\(", right: "\\)", display: false},
             {left: "\\[", right: "\\]", display: true}
           ]
-      })
+      });
+
+      var toc = document.getElementById("TableOfContents");
+      if (toc)
+      {
+      toc.addEventListener('click', function (event) {
+        change_toc();
+        }, false);
+      }
+      
+
   }
 );
 
@@ -32,8 +42,5 @@ document.addEventListener('click', function (event) {
     change_toc();
     }, false);
 
-document.getElementById("TableOfContents").addEventListener('click', function (event) {
-  change_toc();
-  }, false);
 
 

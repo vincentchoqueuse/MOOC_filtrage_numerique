@@ -180,6 +180,11 @@ pre{
 }
 
 
+table thead > tr{
+    border-top: 1px solid rgb(223,223,224);
+    border-bottom: 2px solid rgb(223,223,224);
+}
+
 
 #col1{
     position: fixed;
@@ -270,7 +275,6 @@ pre{
         padding-bottom: 0px;
         padding-left: 20px;
         margin-left:10px;
-        margin-top: 20px;
         margin-bottom: 20px;
         border-left: solid .25rem  rgb(223,223,224);
     }

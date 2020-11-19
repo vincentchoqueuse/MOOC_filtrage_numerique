@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
+    <link rel="icon" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique//css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     
     
@@ -19,7 +20,6 @@
 
         </li>
     </ul>
-    <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique/blob/master/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
         <div class="row" id="main-row">
@@ -73,7 +73,7 @@
 <h1>Analyse dans le domaine en Z</h1>
 
 <br>
-<p>Dans cette section, nous allons introduire les outils nécessaires pour l&rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un filtre d&rsquo;ordre 2.</p>
+<p>Dans cette section, nous allons introduire les outils nécessaires pour l&rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer le filtre d&rsquo;ordre 2 suivant.</p>
 <p><strong>Exemple</strong> (Filtre 1)</p>
 <div class="exemple">
 Le filtre 1 est décrit par l'équation aux différences 
@@ -162,7 +162,7 @@ où $z$ est une variable complexe.
 <li>Théorème de la valeur finale: $\lim_{n\to \infty} x[n]=\lim_{z\to 1}(z-1)X(z)$.</li>
 </ul>
 </div>
-<p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, la figure suivante présente le schéma bloc du filtre~1.</p>
+<p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, la figure suivante présente le schéma bloc du filtre 1.</p>
 <figure>
     <img src="/MOOC_filtrage_numerique/img/fig2.svg" width="450"/> <figcaption>
             <h4>Schéma bloc du filtre 1</h4>
@@ -170,24 +170,32 @@ où $z$ est une variable complexe.
 </figure>
 
 <h2 id="fonction-de-transfert">Fonction de transfert</h2>
-<p>La propriété liée à la convolution montre la transformée en $\mathcal{Z}$ permet de transformer un produit de convolution en un produit simple. Dans le domaine en $\mathcal{Z}$, la sortie s&rsquo;exprime alors simplement comme le produit entre la transformée en $\mathcal{Z}$ de la réponse impulsionnelle et la transformée en $\mathcal{Z}$ de l&rsquo;entrée. La transformée en $\mathcal{Z}$ de la réponse impulsionnelle est appelé fonction de transfert du filtre.</p>
+<p>La transformée en $\mathcal{Z}$ permet de transformer un produit de convolution en un produit simple. Dans le domaine en $\mathcal{Z}$, la sortie s&rsquo;exprime alors simplement comme le produit de la transformée en $\mathcal{Z}$ de la réponse impulsionnelle et de la transformée en $\mathcal{Z}$ de l&rsquo;entrée c-a-d $Y(z)=H(z)X(z)$. La transformée en $\mathcal{Z}$ de la réponse impulsionnelle est appelé fonction de transfert du filtre.</p>
 <p><strong>Définition</strong> (Fonction de Transfert)</p>
 <div class="definition">
 La fonction de transfert d'un filtre correspond à la transformée en $\mathcal{Z}$ de sa réponse impulsionnelle c-a-d
 <p>$$H(z)=\sum_{n=-\infty}^{\infty}h[n]z^{-n}$$</p>
 </div>
-<p>La fonction de transfert d&rsquo;un filtre s&rsquo;exprime également sous la forme $H(z)=Y(z)/X(z)$. Pour un filtre décrit par une équation aux différences, cette propriété permet d&rsquo;exprimer la fonction de transfert du filtre en fonction des coefficients des parties récursive $a_l$ et non-recursive $b_m$ du filtre.</p>
+<p>Pour un filtre décrit par une équation aux différences, il est également possible d&rsquo;obtenir rapidement la fonction de transfert en exploitant la propriété de linéarité et de décalage temporel. Dans le domaine en $\mathcal{Z}$, nous obtenons</p>
+<p>$$
+\begin{aligned}
+Y(z)&amp;=\sum_{m=0}^{M}b_m z^{-m} X(z)-\sum_{l=1}^{L}a_l z^{-l}Y(z)\\
+Y(z)\left(\sum_{l=0}^{L}a_l z^{-l}\right)&amp;=X(z)\left(\sum_{m=0}^{M}b_m z^{-m}\right) \\
+\end{aligned}
+$$
+avec $a_0=1$. En utilisant le fait que $H(z)=Y(z)/X(z)$, nous obtenons finalement la propriété suivante.</p>
 <p><strong>Propriété</strong></p>
 <div class="propriete">
-La fonction de transfert d'un filtre numérique décrit par une <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/#eq_dif">équation aux différences</a> s'exprime sous la forme 
-<p>$$H(z)=\frac{\sum_{m=0}^{M}b_m z^{-m}}{\sum_{l=0}^{L}a_l z^{-l}}=\frac{B(z)}{A(z)}$$</p>
+La fonction de transfert d'un filtre numérique décrit par une <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/#eq_dif">équation aux différences</a> s'exprime sous la forme d'une fraction de polynômes en $\mathcal{Z}$
+<p>$$H(z)=\frac{B(z)}{A(z)}=\frac{\sum_{m=0}^{M}b_m z^{-m}}{\sum_{l=0}^{L}a_l z^{-l}}$$</p>
 </div>
+<p>Notons que pour un filtre FIR, $A(z)=1$ et la fonction de transfert est simplement égale à $H(z)=B(z)$.</p>
 <p><strong>Exemple</strong> (Filtre 1)</p>
 <div class="exemple">
 A titre d'exemple, il est possible de montrer que la fonction de transfert du filtre 1 est donnée par 
 <p>$$H(z)=\frac{0.065+0.13 z^{-1}+0.065z^{-2}}{1-1.143z^{-1}+0.413z^{-2}}.$$</p>
 </div>
-<p>La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des &ldquo;pics&rdquo; et des &ldquo;vallées&rdquo;. Le &ldquo;relief&rdquo; de la fonction de transfert est directement lié au comportement du filtre.</p>
+<p>La figure suivante présente le module de la fonction de transfert, $|H(z)|$, pour le filtre 1. Cette figure montre que le module de la fonction de transfert possède des &ldquo;pics&rdquo; et des &ldquo;vallées&rdquo;.</p>
 <figure>
     <img src="/MOOC_filtrage_numerique/img/dlti_filter2.png" width="550"/> <figcaption>
             <h4>Module de la fonction de transfert $H(z)$</h4>
@@ -204,6 +212,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
 <ul>
 <li>Les valeurs $z_m$ correspondent aux zéros de la fonction de transfert ($H(z_m)=0$).</li>
 <li>Les valeurs $p_l$ correspondent aux poles de la fonction de transfert ($H(z)=\pm \infty$).</li>
+<li>$K$ est un facteur d&rsquo;amplification.</li>
 </ul>
 <p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réel ou complexes-conjugués.</p>
 <p><strong>Exemple</strong> (Filtre 1)</p>
@@ -217,7 +226,28 @@ Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugu�
 </figure>
 
 <h2 id="stabilité">Stabilité</h2>
-<p>De manière formelle, un filtre est dit stable si sa réponse impulsionnelle est absolument sommable c-a-d $\sum_{n=-\infty}^{\infty}|h[n]|&lt;\infty$. Il est possible d&rsquo;établir que la stabilité d&rsquo;un filtre numérique dépend directement de la localisation de ses pôles. Nous retiendrons en particulier la propriété suivante.</p>
+<p>Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utiliserons la notion de stabilité au sens BIBO (Bounded-Input Bounded-Output).</p>
+<p><strong>Définiton</strong> (BIBO Stable)</p>
+<div class="definition">
+Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]est également bornée c-a-d
+<p>$$y[n]\le y_{max}&lt;\infty$$</p>
+</div>
+<p>Il est possible d&rsquo;établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $x[n]\le x_{max}$ où $x_{max}$ désigne le maximum de $x[n]$. Comme la sortie s&rsquo;exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons</p>
+<p>$$
+\begin{aligned}
+|y[n]|&amp;=\left|\sum_{k=-\infty}^{\infty} h[k]x[n-k]\right| \\
+&amp;\le \sum_{k=-\infty}^{\infty} |h[k]||x[n-k]| \\
+&amp;\le \sum_{k=-\infty}^{\infty} |h[k]|x_{max} \\
+&amp;\le x_{max} \sum_{k=-\infty}^{\infty} |h[k]| \\
+\end{aligned}
+$$</p>
+<p>Lorsque l&rsquo;entrée est bornée, nous avons $x_{max}&lt; \infty$. Sous l&rsquo;hypothèse additionnelle que la réponse impulsionnelle est absolument sommable, nous en déduisons que $|y[n]|&lt;\infty$ et donc que la sortie est bornée.</p>
+<p><strong>Propriété</strong> (BIBO Stable)</p>
+<div class="definition">
+Pour qu'un filtre soit BIBO stable, une condition suffisante est que la réponse impulsionnelle soit absolument sommable c-a-d 
+$$\sum_{n=-\infty}^{\infty}|h[n]|<\infty.$$
+</div>
+<p>Il est également possible d&rsquo;établir une condition portant sur la localisation des pôles $p_l$ de $H(z)$. Nous retiendrons en particulier la propriété suivante.</p>
 <p><strong>Propriété</strong> (Stabilité)</p>
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$
 $$|p_l|\le 1.$$

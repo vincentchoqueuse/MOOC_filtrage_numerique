@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
+    <link rel="icon" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique//css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     
     
@@ -19,7 +20,6 @@
 
         </li>
     </ul>
-    <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique/blob/master/LICENCE.md"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg"></img></a>
     <a class="nav-link" href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a>
 </nav><main role="main" class="container-fluid">
         <div class="row" id="main-row">
@@ -72,16 +72,17 @@
 <h1>Introduction</h1>
 
 <br>
-<p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce support de cours, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie (SISO: Single-Input Single-Output). Ces filtres sont couramment utilisés dans un large panel d&rsquo;applications.</p>
+<p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes simples. Ces algorithmes peuvent être codés dans n&rsquo;importe quel langage de programmation même si le C reste la norme pour les applications embarquées.</p>
+<p>Dans ce support de cours, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie (SISO: Single-Input Single-Output). Ces filtres sont couramment utilisés dans un large panel d&rsquo;applications pour supprimer de l&rsquo;information inutile.</p>
 <h2 id="modélisation">Modélisation</h2>
-<p>Un filtre numérique peut être modélisé par une fonction mathématique prenant en entrée un signal numérique et renvoyant en sortie un signal numérique. Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$).</p>
+<p>Un filtre numérique peut être modélisé par une fonction mathématique recevant en entrée un signal numérique et renvoyant en sortie un signal numérique. Mathématiquement, un signal numérique est représenté par une suite de nombres où le $n^{ieme}$ nombre de la suite est noté $x[n]$ ($n \in \mathbb{Z}$).</p>
 <figure>
     <img src="/MOOC_filtrage_numerique/img/fig1.svg" width="450"/> <figcaption>
             <h4>Filtre LTI</h4>
         </figcaption>
 </figure>
 
-<p>Dans ce cours, nous allons nous intéresser à la classe des filtres dits linéaires et invariants dans le temps (LTI).</p>
+<p>Le lien entre l&rsquo;entrée et la sortie est modélisé via l&rsquo;opérateur $T\{.\}$ c-a-d $y[n]=T\{x[n]\}$. Dans ce cours, nous allons nous intéresser à la classe des filtres dits linéaires et invariants dans le temps (LTI).</p>
 <p><strong>Définition</strong> (Filtre LTI)</p>
 <div class="propriete">
 Un filtre LTI respecte les propriétés suivantes:
@@ -90,31 +91,37 @@ Un filtre LTI respecte les propriétés suivantes:
 <li>Invariance dans le temps: Si l&rsquo;entrée du filtre est égale à $x[n]=x_1[n-\tau]$ ($\tau \in \mathbb{Z}$), alors $y[n]=y_1[n-\tau]$.</li>
 </ul>
 </div>
-<p>En utilisant les deux propriétés précédentes, il est possible d&rsquo;établir qu&rsquo;un filtre LTI est entièrement décrit par sa réponse à une entrée de type impulsion ($x[n]=\delta[n]$). La réponse à une entrée de type impulsion est appelée réponse impulsionnelle et est notée $h[n]$.</p>
-<p>Lorsque l&rsquo;entrée est un signal quelconque, la sortie du filtre s&rsquo;obtient en utilisant un produit de convolution.</p>
+<p>En utilisant les deux propriétés précédentes, il est possible d&rsquo;établir que la sortie du filtre s&rsquo;exprime à partir d&rsquo;un produit de convolution.</p>
 <p><strong>Propriété</strong></p>
-<div class="definition">
+<div class="propriete">
 Lorsqu'un signal $x[n]$ est envoyé à l'entrée d'un filtre LTI, la sortie s'exprime sous la forme
-$$y[n]=x[n]*h[n] \triangleq \sum_{k=-\infty}^{\infty}x[k]h[n-k]$$
-où $*$ désigne le produit de convolution.
+$$y[n]=\mathcal{T}\{x[n]\}=\sum_{k=-\infty}^{\infty}h[k]x[n-k]=x[n]*h[n]$$
+où $*$ désigne le produit de convolution et $h[n]$ désigne la réponse impulsionnelle du filtre.
 </div>
-<p>Une grande catégorie de filtres LTI peut se modéliser par une équation aux différences.</p>
+<p>Cette propriété montre que le comportement d&rsquo;un filtre LTI est entièrement décrit par sa réponse impulsionnelle. La réponse impulsionnel d&rsquo;un filtre s&rsquo;obtient en envoyant en entrée une impulsion c-a-d $h[n]=\mathcal{T}\{\delta[n]\}$.</p>
+<p>Certains filtres LTI peuvent se modéliser par une équation aux différences liant l&rsquo;entrée et la sortie.</p>
 <p><strong>Définition</strong> (Equation aux différences)</p>
 <div class="definition" id="eq_dif">
 L'équation aux différences est modélisée par 
-$$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l],$$
+$$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l].$$
 </div>
 <p>Dans l&rsquo;équation aux différences :</p>
 <ul>
 <li>les coefficients réels $b_m$ correspondent à la partie non-récursive du filtre,</li>
 <li>les coefficients réels $a_l$ correspondent à la partie récursive du filtre.</li>
 </ul>
-<p>Dans l&rsquo;équation aux différences, notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre du filtre est défini comme étant la plus grande valeur entre $M$ et $L$.</p>
+<p>Dans l&rsquo;équation aux différences, notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre $N$ d&rsquo;un filtre est défini comme étant la plus grande valeur entre $M$ et $L$ c-a-d $N=\max(M,L)$.</p>
 <h2 id="filtres-fir-et-iir">Filtres FIR et IIR</h2>
-<p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient en prenant comme entrée l&rsquo;impulsion c-a-d $x[n]=\delta[n]$ et en fixant $y[n]=0$ pour $n&lt;0$. Il est alors possible de définir deux grandes catégories de filtres :</p>
+<p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient de manière recursive en prenant comme entrée $x[n]=\delta[n]$ et en fixant $y[n]=0$ pour $n&lt;0$. Il est alors possible de définir deux grandes catégories de filtres :</p>
 <ul>
-<li>les filtres à Réponse Impulsionnelle Finie (FIR) pour lesquels $a_l=0$ pour tout $l&gt;0$,</li>
-<li>les filtres à Réponse Impulsionnelle Infinie (IIR) pour lesquels il existe au moins une valeur de $l$ ($l&gt;0$) telle que $a_l\ne 0$.</li>
+<li>
+<p>Les filtres à <strong>Réponse Impulsionnelle Finie (FIR)</strong> pour lesquels $a_l=0$ pour tout $l&gt;0$ c-a-d
+$$y[n]=\sum_{m=0}^{M}b_m x[n-m]$$ Pour ce type de filtre, $y[n]$ dépend uniquement des $M$ derniers échantillons d&rsquo;entrée $x[n-m]$. La réponse impulsionnelle d&rsquo;un filtre FIR est simplement donnée par
+$h[n]=b_m$. Cette réponse est nécessairement nulle au bout de $M$ échantillons c-a-d $h[n]=0$ pour $n&gt;M$.</p>
+</li>
+<li>
+<p>Les filtres à <strong>Réponse Impulsionnelle Infinie (IIR)</strong> pour lesquels il existe au moins une valeur de $l$ telle que $a_l\ne 0$. Pour ce type de filtre, $y[n]$ dépend des $M$ derniers échantillons en entrée et des $L$ dernièrs échantillons en sortie.</p>
+</li>
 </ul>
 <h2 id="problématiques">Problématiques</h2>
 <p>Dans ce document, nous allons traiter les problématiques suivantes.</p>

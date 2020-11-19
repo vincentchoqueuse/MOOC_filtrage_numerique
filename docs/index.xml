@@ -23,7 +23,8 @@ from scipy import signal H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413]) pr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/</guid>
-      <description>Un filtre permet de &amp;ldquo;sculpter&amp;rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes pouvant être codés dans n&amp;rsquo;importe quel langage de programmation (même si le C reste la norme pour les applications embarquées). Dans ce support de cours, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie (SISO: Single-Input Single-Output).</description>
+      <description>Un filtre permet de &amp;ldquo;sculpter&amp;rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes simples. Ces algorithmes peuvent être codés dans n&amp;rsquo;importe quel langage de programmation même si le C reste la norme pour les applications embarquées.
+Dans ce support de cours, nous allons nous intéresser à la synthèse de filtres numériques à une entrée et une sortie (SISO: Single-Input Single-Output).</description>
     </item>
     
     <item>
@@ -32,7 +33,7 @@ from scipy import signal H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413]) pr
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/</guid>
-      <description>Dans cette section, nous allons introduire les outils nécessaires pour l&amp;rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer un filtre d&amp;rsquo;ordre 2.
+      <description>Dans cette section, nous allons introduire les outils nécessaires pour l&amp;rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer le filtre d&amp;rsquo;ordre 2 suivant.
 Exemple (Filtre 1)
 Le filtre 1 est décrit par l&#39;équation aux différences $$ y[n]=0.065x[n]+0.13 x[n-1]+0.065x[n-2]+1.143y[n-1]-0.413y[n-2]. $$  Transformée en Z Définition (Transformée en $\mathcal{Z}$)
 La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie par l&#39;équation $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$ où $z$ est une variable complexe.</description>
@@ -44,9 +45,8 @@ La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre2/</guid>
-      <description>Le domaine fréquentielle est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine d&amp;rsquo;analyser permet de comprendre rapidement l&amp;rsquo;impact d&amp;rsquo;un filtre sur le contenu fréquentiel d&amp;rsquo;un signal.
-Réponse Fréquentielle Propriété
-La réponse d&#39;un filtre LTI à une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ est donnée par $y[n]=H(e^{j\Omega}) e^{jn\Omega} $ où $$H(e^{j\Omega})=\sum_{n=-\infty}^{\infty} h[n] e^{-jn\Omega}$$  Le coefficient complexe $H(e^{j\Omega})$ est appelé réponse fréquentielle du filtre.</description>
+      <description>Le domaine fréquentiel est un domaine particulièrement utilisé pour analyser le comportement des filtres LTI. Ce domaine présente l&amp;rsquo;avantage de mettre en évidence l&amp;rsquo;impact d&amp;rsquo;un filtre sur le contenu fréquentiel d&amp;rsquo;un signal.
+Réponse Fréquentielle La sortie d&amp;rsquo;un filtre LTI s&amp;rsquo;exprime comme un produit de convolution entre l&amp;rsquo;entée $x[n]$ et la réponse impulsionnelle du filtre $h[n]$. Pour certaines entrées, la sortie peut se déterminer plus facilement. En particulier, lorsque l&amp;rsquo;entrée du filtre est une exponentielle complexe $x[n]=e^{jn\Omega}$ de pulsation normalisée $\Omega=\omega T_e$ [rad/ech], la sortie s&amp;rsquo;exprime sous la forme :</description>
     </item>
     
   </channel>
