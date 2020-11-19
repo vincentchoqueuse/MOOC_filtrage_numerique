@@ -278,6 +278,10 @@ pre{
 
 @media(max-width:1439px){
 
+    h1{
+        padding-top: 90px;
+    }
+
     #btn-toc{
         display:none;
     }
