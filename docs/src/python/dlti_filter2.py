@@ -25,8 +25,8 @@ ax = fig.gca(projection='3d')
 ax.plot_surface(X, Y, abs_H, norm=colors.LogNorm(vmin=0.001,vmax=2),cmap=cm.Blues,rstride=1,cstride=1)
 ax.view_init(elev=44,azim=45)
 
-plt.xlabel("Real Part")
-plt.ylabel("Imaginary Part")
+plt.ylabel("Real Part")
+plt.xlabel("Imaginary Part")
 
 filename = os.path.basename(__file__).replace(".py","")
 plt.savefig("../../img/{}.png".format(filename)) 
