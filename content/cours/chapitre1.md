@@ -125,7 +125,11 @@ En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant 
 
 **Exemple** (Filtre 1)
 <div class="exemple">
-Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugués en $z=0.57\pm 0.29j$. Les pôles et les zéros de ce filtre sont représentés dans la figure suivante. 
+Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugués en $z=0.57\pm 0.29j$. La fonction de transfert peut se reexprimer sous la forme factorisée suivante :
+
+$$H(z)=0.065\frac{(1+z^{-1})(1+z^{-1})}{(1-(0.57+0.29j)z^{-1})(1-(0.57-0.29j)z^{-1})}$$
+
+Les pôles et les zéros de ce filtre sont représentés dans la figure suivante. 
 </div>
 
 {{< figure src="/MOOC_filtrage_numerique/img/zpk_filter2.svg" title="Pôles et Zéros du Filtre 2" width="450" >}}
