@@ -27,7 +27,7 @@ La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de
 
 **Remarques**
 * Périodicité : la réponse fréquentielle est $2\pi$-périodique ($H(e^{j\Omega})=H(e^{j(\Omega+2k\pi)})$ pour tout $k \in \mathbb{Z}$).
-* Symétrie Hermitienne : Lorsque $h[n]\in \mathbb{R}$, $H(e^{j\omega})=H^{*}(e^{-j\omega})$.
+* Symétrie Hermitienne : Lorsque $h[n]\in \mathbb{R}$, $H(e^{j\omega})=-H^{*}(e^{-j\omega})$.
 
 
 ## Représentation 
