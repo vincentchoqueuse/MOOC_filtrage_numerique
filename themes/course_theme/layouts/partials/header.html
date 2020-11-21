@@ -1,11 +1,10 @@
-<nav class="navbar fixed-top navbar-expand-md custom-navbar">
-  <button class="btn" id="btn-content"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
-  <button class="btn" id="btn-toc"><img src="{{ .Site.BaseURL }}img/x.svg" width="24px" id="nav-button"></button> 
-   <ul class="navbar-nav mr-auto">
-       <li class="nav-item active">
-          <span class="navbar-brand">{{ .Site.Title}}</span>
-
-        </li>
-    </ul>
-    <a class="nav-link" href="{{.Site.Params.GitHub}}"><img src="{{ .Site.BaseURL }}img/github.svg"></img></a>
+<nav class="navbar">
+   <ul>
+      <li>
+        <button class="btn" id="btn-content"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
+       <button class="btn" id="btn-toc"><img src="{{ .Site.BaseURL }}img/x.svg" width="24px" id="nav-button"></button> 
+      </li>
+      <li ><a href="#">{{ .Site.Title}}</a></li>
+      <li style="float:right"><a href="{{.Site.Params.GitHub}}"><img src="{{ .Site.BaseURL }}img/github.svg"></img></a></li>
+  </ul>
 </nav>

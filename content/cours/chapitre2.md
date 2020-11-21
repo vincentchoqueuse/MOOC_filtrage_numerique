@@ -45,10 +45,10 @@ Pour analyser le comportement d'un filtre, il est utile de représenter le modul
 A titre d'illustration, la figure suivante présente le module et l'argument de la réponse fréquentielle du filtre 1. Nous observons que le filtre se comporte comme un filtre passe-bas. Nous pouvons également noté la présence de distorsion de phase puisque la phase n'est pas linéaire en fonction de la pulsation.
 
 <div class="row">
-    <div class="col-lg-6 col-md-12">
+    <div class="col-6 ">
 {{< figure src="/MOOC_filtrage_numerique/img/freq_response_abs.svg" title="Réponse fréquentielle : Module filtre 1" width="100%" >}}
     </div>
-    <div class="col-lg-6 col-md-12">
+    <div class="col-6" >
 {{< figure src="/MOOC_filtrage_numerique/img/freq_response_angle.svg" title="Réponse fréquentielle : Argument du filtre 1" width="100%" >}}
     </div>
 </div>
