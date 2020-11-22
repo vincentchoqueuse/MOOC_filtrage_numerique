@@ -9,7 +9,10 @@ Dans cette section, nous allons introduire les outils nécessaires pour l'analys
 <div class="exemple">
 Le filtre 1 est décrit par l'équation aux différences 
 $$
-y[n]=0.065x[n]+0.13 x[n-1]+0.065x[n-2]+1.143y[n-1]-0.413y[n-2].
+\begin{aligned}
+y[n]&=0.065x[n]+0.13 x[n-1]+0.065x[n-2]\\
+&~~~+1.143y[n-1]-0.413y[n-2]
+\end{aligned}
 $$
 </div>
 

@@ -4,7 +4,7 @@
         <button class="btn" id="btn-content"><img src="{{ .Site.BaseURL }}img/menu.svg" width="24px" id="nav-button"></button>
        <button class="btn" id="btn-toc"><img src="{{ .Site.BaseURL }}img/x.svg" width="24px" id="nav-button"></button> 
       </li>
-      <li ><a href="#">{{ .Site.Title}}</a></li>
+      <li ><a href="{{ .Site.BaseURL }}">{{ .Site.Title}}</a></li>
       <li style="float:right"><a href="{{.Site.Params.GitHub}}"><img src="{{ .Site.BaseURL }}img/github.svg"></img></a></li>
   </ul>
 </nav>

@@ -5,10 +5,10 @@
         {{- partial "header.html" . -}}
         <main role="main" class="container-fluid">
         <div class="row" id="main-row">
-            <div id="col1">
+            <div id="col1" class="col-3">
             {{- partial "sidebar.html" . -}}
             </div>
-            <div id="col2" class="container">
+            <div id="col2" class="col-9">
                 <div id="content" class="content">
                 {{- block "main" . }}{{- end }}
                  </div>
