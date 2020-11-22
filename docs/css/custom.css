@@ -83,7 +83,9 @@ button {
     border: none;
 }
 
-
+.highlight-wrapper{
+overflow-x: scroll;
+}
 
 .navbar ul {
     list-style-type: none;
