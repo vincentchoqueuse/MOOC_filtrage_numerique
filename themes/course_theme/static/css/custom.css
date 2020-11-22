@@ -188,7 +188,7 @@ pre{
     font-size: 13px;
     width: 65px;
     padding-top:7px;
-    padding-right:20px;
+    margin-right:10px;
     color: rgba(255, 255, 255, 0.397);
     cursor: pointer;
   }
@@ -274,7 +274,6 @@ aside nav li:not(:last-child){
 }
 
 
-
 aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
     font-weight: normal;
     list-style: none;
@@ -306,7 +305,6 @@ aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
         padding-top: 20px;
         padding-bottom: 40px;
     }
-
 
     #sidebar h2{
         padding-top:20px;
@@ -361,8 +359,12 @@ aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
     aside nav > ul>li>ul, nav > ul>li>ul>nav>ul {
         margin-left:20px;
     }
+    aside nav ul>li>ul>li{
+        list-style: circle;
+    }
 
     aside nav li:not(:last-child){
+       
         padding: 0px;
         border-bottom: none;
     }

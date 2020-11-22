@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     
-    <link rel="icon" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/cc.svg">
+    <link rel="icon" href="https://mirrors.creativecommons.org/presskit/icons/cc.xlarge.png">
     <link rel="stylesheet" type="text/css" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique//css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     
@@ -156,13 +156,25 @@ où $z$ est une variable complexe.
 <li>Théorème de la valeur finale: $\lim_{n\to \infty} x[n]=\lim_{z\to 1}(z-1)X(z)$.</li>
 </ul>
 </div>
-<p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, la figure suivante présente le schéma bloc du filtre 1.</p>
-<figure>
+<p>La propriété liée au décalage temporel indique qu&rsquo;un retard d&rsquo;un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l&rsquo;équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d&rsquo;un échantillon. A titre d&rsquo;exemple, les figures suivantes présentent deux schéma-blocs possibles pour l&rsquo;implémentations du filtre 1. Le second schéma-bloc permet d&rsquo;économiser 2 cellules de retard.</p>
+<div class="row">
+    <div class="col-6 ">
+    <figure>
     <img src="/MOOC_filtrage_numerique/img/fig2.svg" width="450"/> <figcaption>
-            <h4>Schéma bloc du filtre 1</h4>
+            <h4>Schéma bloc du filtre 1 (Direct Form I)</h4>
         </figcaption>
 </figure>
 
+    </div>
+    <div class="col-6" >
+    <figure>
+    <img src="/MOOC_filtrage_numerique/img/fig2b.svg" width="450"/> <figcaption>
+            <h4>Schéma bloc du filtre 1 (Direct Form II)</h4>
+        </figcaption>
+</figure>
+
+    </div>
+</div>
 <h2 id="fonction-de-transfert">Fonction de transfert</h2>
 <p>La transformée en $\mathcal{Z}$ permet de transformer un produit de convolution en un produit simple. Dans le domaine en $\mathcal{Z}$, la sortie s&rsquo;exprime alors simplement comme le produit de la transformée en $\mathcal{Z}$ de la réponse impulsionnelle et de la transformée en $\mathcal{Z}$ de l&rsquo;entrée c-a-d $Y(z)=H(z)X(z)$. La transformée en $\mathcal{Z}$ de la réponse impulsionnelle est appelé fonction de transfert du filtre.</p>
 <p><strong>Définition</strong> (Fonction de Transfert)</p>
@@ -228,12 +240,11 @@ Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugu�
 Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-a-d
 <p>$$y[n]\le y_{max}&lt;\infty$$</p>
 </div>
-<p>Il est possible d&rsquo;établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $x[n]\le x_{max}$ où $x_{max}$ désigne le maximum de $x[n]$. Comme la sortie s&rsquo;exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons</p>
+<p>Il est possible d&rsquo;établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $|x[n]|\le x_{max}$ où $x_{max}$ désigne le maximum de $|x[n]|$. Comme la sortie s&rsquo;exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons</p>
 <p>$$
 \begin{aligned}
 |y[n]|&amp;=\left|\sum_{k=-\infty}^{\infty} h[k]x[n-k]\right| \\
 &amp;\le \sum_{k=-\infty}^{\infty} |h[k]||x[n-k]| \\
-&amp;\le \sum_{k=-\infty}^{\infty} |h[k]|x_{max} \\
 &amp;\le x_{max} \sum_{k=-\infty}^{\infty} |h[k]| \\
 \end{aligned}
 $$</p>

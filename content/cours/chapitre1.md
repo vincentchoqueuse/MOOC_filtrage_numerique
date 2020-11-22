@@ -48,9 +48,19 @@ Il est important de noter que la transformée de $\mathcal{Z}$ d'un signal ne co
 * Théorème de la valeur finale: $\lim_{n\to \infty} x[n]=\lim_{z\to 1}(z-1)X(z)$.
 </div>
 
-La propriété liée au décalage temporel indique qu'un retard d'un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l'équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d'un échantillon. A titre d'exemple, la figure suivante présente le schéma bloc du filtre 1.
+La propriété liée au décalage temporel indique qu'un retard d'un échantillon dans le domaine temporel revient à multiplier la transformée en $\mathcal{Z}$ par $z^{-1}$. En utilisant cette propriété, l'équation aux différences peut être représentée graphiquement par un schéma bloc où les blocs de fonction de transfert $z^{-1}$ symbolisent un retard d'un échantillon. A titre d'exemple, les figures suivantes présentent deux schéma-blocs possibles pour l'implémentations du filtre 1. Le second schéma-bloc permet d'économiser 2 cellules de retard.
 
-{{< figure src="/MOOC_filtrage_numerique/img/fig2.svg" title="Schéma bloc du filtre 1" width="450" >}}
+
+
+<div class="row">
+    <div class="col-6 ">
+    {{< figure src="/MOOC_filtrage_numerique/img/fig2.svg" title="Schéma bloc du filtre 1 (Direct Form I)" width="450" >}}
+    </div>
+    <div class="col-6" >
+    {{< figure src="/MOOC_filtrage_numerique/img/fig2b.svg" title="Schéma bloc du filtre 1 (Direct Form II)" width="450" >}}
+    </div>
+</div>
+
 
 ## Fonction de transfert
 
@@ -138,13 +148,12 @@ Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie 
 $$y[n]\le y_{max}<\infty$$
 </div>
 
-Il est possible d'établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $x[n]\le x_{max}$ où $x_{max}$ désigne le maximum de $x[n]$. Comme la sortie s'exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons
+Il est possible d'établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $|x[n]|\le x_{max}$ où $x_{max}$ désigne le maximum de $|x[n]|$. Comme la sortie s'exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons
 
 $$
 \begin{aligned}
 |y[n]|&=\left|\sum_{k=-\infty}^{\infty} h[k]x[n-k]\right| \\\ 
 &\le \sum_{k=-\infty}^{\infty} |h[k]||x[n-k]| \\\ 
-&\le \sum_{k=-\infty}^{\infty} |h[k]|x_{max} \\\ 
 &\le x_{max} \sum_{k=-\infty}^{\infty} |h[k]| \\\ 
 \end{aligned}
 $$
