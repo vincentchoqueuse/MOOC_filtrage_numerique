@@ -4,7 +4,7 @@ A minimal website generator based on hugo well suited for scientific courses.
 
 * Demo website: https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/
 
-[!Hugo demo](screen.png)
+![Hugo demo](screen.png)
 
 ## Content
 
