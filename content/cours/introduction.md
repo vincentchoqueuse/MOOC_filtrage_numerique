@@ -73,19 +73,11 @@ Pour le filtre 1, nous trouvons par identification :
 Un filtre régit par une équation aux différences peut être implémenté facilement en utilisant une récurrence. A titre d'exemple, la code suivant montre une implémentation possible (et complètement non optimisée) en Python.
 
 {{< highlight python >}}
-yn = [0,0,0]
-xn = [0,0,0]
-x_input= [1,0,1,0,0,0,0]
-y_output = [0,0,0,0,0,0,0]
+x = [0,0,1,0,1,0,0,0,0]
+y = [0,0,0,0,0,0,0,0,0]
 
-for n in range(len(x_input)):
-    xn[0] = x_input[n]
-    y_output[n] = 0.065*xn[0]+0.13*xn[1]+0.065*xn[2]+1.143*yn[1]-0.413*yn[2]
-    # save old values
-    yn[2] = yn[1]
-    yn[1] = y_output[n]
-    xn[2] = xn[1]
-    xn[1] = xn[0]
+for n in range(2,9):
+    y[n] = 0.065*x[n]+0.13*x[n-1]+0.065*x[n-2]+1.143*y[n-1]-0.413*y[n-2]
 
 {{< / highlight >}}
 
