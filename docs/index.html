@@ -14,25 +14,27 @@
 </head><body><nav class="navbar">
    <ul>
       <li>
-        <button class="btn" id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
-       <button class="btn" id="btn-toc"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" id="nav-button"></button> 
+        <div id="nav-button">
+          <button id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" class="pointer-none"></button>
+          <button id="btn-toc" class="hidden"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" class="pointer-none"></button> 
+        </div>
       </li>
       <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/">Filtrage Numérique</a></li>
       <li style="float:right"><a href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a></li>
   </ul>
 </nav><main role="main" class="container-fluid">
         <div class="row" id="main-row">
-            <div id="col1" class="col-3">
+            <div id="sidebar" class="col-3">
 
-<aside class="sidebar" id="sidebar" class="collapse" >
-<h2 class="d-none d-sm-block">Filtrage Numérique </h2>
-<nav class="sidebar-nav">
+<aside >
+<h2>Filtrage Numérique </h2>
+<nav>
     
-    <ul class="menu_nav">
-        <li> <a class="sidebar-nav-item" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
+    <ul>
+        <li> <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
         
-        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
-        <ul>
+        <li> <a class="nav-item" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
+        <li><ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
@@ -44,22 +46,24 @@
              
         
         </ul>
+        </li>
 
     
-        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
-        <ul>
+        <li> <a class="nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
+        <li><ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/"> Python Cheatsheet</a></li>
              
         
         </ul>
+        </li>
 
     
     </ul>
 </nav>
 </aside></div>
-            <div id="col2" class="col-9">
-                <div id="content" class="content">
+            <div id="content" class="col-9 active">
+                <div class="content">
 <h1 class="title">Filtrage Numérique</h1>
 <p>
 Cette page contient un support de cours pour l&#39;enseignement du filtrage numérique.
@@ -89,6 +93,7 @@ Cette page contient un support de cours pour l&#39;enseignement du filtrage num�
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
 <script src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/js/custom.js"></script>
+<script src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/js/clipboard.js"></script>
 </body>
 </html>
 

@@ -3,18 +3,7 @@ title: "Analyse dans le domaine en Z"
 weight: 3
 ---
 
-Dans cette section, nous allons introduire les outils nécessaires pour l'analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer le filtre d'ordre 2 suivant.
-
-**Exemple** (Filtre 1)
-<div class="exemple">
-Le filtre 1 est décrit par l'équation aux différences 
-$$
-\begin{aligned}
-y[n]&=0.065x[n]+0.13 x[n-1]+0.065x[n-2]\\
-&~~~+1.143y[n-1]-0.413y[n-2]
-\end{aligned}
-$$
-</div>
+Dans cette section, nous allons introduire les outils nécessaires pour l'analyse des filtres numériques. 
 
 ## Transformée en Z
 
@@ -144,7 +133,7 @@ Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utilisero
 
 **Définiton** (BIBO Stable)
 <div class="definition">
-Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]est également bornée c-a-d
+Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-a-d
 
 $$y[n]\le y_{max}<\infty$$
 </div>

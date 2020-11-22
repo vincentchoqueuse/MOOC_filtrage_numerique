@@ -6,6 +6,21 @@ weight: 1
 La librairie Python `scipy` contient tous les outils nécessaire pour l'analyse et l'implémentation des filtres. 
 La fonction `dlti` permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir [doc](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html)). 
 
+
+## Implémentation d'un filtre
+
+Un filtre peut être implémenté par une récurrence. La fonction scipy `dfilter` permet d'obtenir la sortie d'un filtre lorsque l'entrée est une liste `x` (ou un tableau `numpy`). La sortie est calculée en appelant des fonctions codées en C.
+
+{{< highlight python >}}
+from scipy import signal
+
+x = [1,0,0,1,0,0.4]
+bn = [0.065,0.13,0.065]
+an = [1,-1.143,0.413]
+
+y = signal.lfilter(bn,an,x)
+{{< / highlight >}}
+
 ## Pôles et zéros
 
 Les pôles et les zéros sont des attributs de l'objet `dlti`.
@@ -32,7 +47,7 @@ from scipy import signal
 H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
 
 n, y = H.step()
-plt.step(n, np.squeeze(y)) # hope scipy will remove this tricky modification !
+plt.step(n, np.squeeze(y))
 plt.grid()
 plt.xlabel('n [samples]')
 plt.ylabel('Amplitude')

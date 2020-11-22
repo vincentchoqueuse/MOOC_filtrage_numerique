@@ -23,16 +23,11 @@ body, input, textarea, select, button {
     }
 
 h1,h2, h3{
-
+    color: black;
     line-height: 1.125;
     font-weight: 600;
     letter-spacing: .004em;
     font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
- }
-
-
-h1 {
-    font-size: 32px;
     }
 
 h1{
@@ -58,6 +53,10 @@ p{
     margin-inline-end: 0px;
 }
 
+.navbar .hidden{
+    display: none;
+}
+
 .navbar { 
     background-color: white; 
     color: black;
@@ -72,20 +71,19 @@ p{
     z-index: 999;
 }
 
-.navbar .btn {
-    display: inline-block;
-    font-weight: 400;
+.pointer-none {
+    pointer-events: none;
+  }
+
+button {
     color: #212529;
     text-align: center;
     vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
     background-color: transparent;
     border: none;
-    font-size: 1rem;
 }
+
+
 
 .navbar ul {
     list-style-type: none;
@@ -94,13 +92,13 @@ p{
     overflow: hidden;
 }
 
-.navbar img, ,.navbar button{
+.navbar img {
     height: 26px;
 }
 
 .navbar li {
     float: left;
-  }
+}
   
 .navbar li a,.navbar li button {
     display: block;
@@ -145,12 +143,6 @@ p{
 .align_right {
     float: right;
     }
-
-.content{
-    padding-top: 18px;
-    padding-right: 20px;
-    padding-left: 20px;
-}
 
 .footer-nav{
     padding-top: 80px;
@@ -226,6 +218,10 @@ table thead > tr{
 }
 
 
+[class*="col-"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
 .row::after {
     content: "";
@@ -233,94 +229,62 @@ table thead > tr{
     display: table;
   }
 
-[class*="col-"] {
-    width: 100%;
+#sidebar, #content{
     box-sizing: border-box;
-  }
-
-
-#btn-toc{
-    display:none;
-}
-
-#btn-content{
-    display:inline;
-}
-
-#btn-toc.toc {
-    display: inline;
-}
-
-#btn-content.toc{
     display: none;
+    padding-top: 60px;
+    padding-left:20px;
 }
 
-#col1{  
+#sidebar{
     position: fixed;
-    top: 70px;   
-    display : none;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 40px;
     font-size: 1.125rem !important;
-    color: black !important;
 }
 
-
-#col2{
-    box-sizing: border-box;
-}
-
-#col2 .content{
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 80px;
-}
-
-.toc #col1{
+#sidebar.active, #content.active{
     display: block;
 }
 
-.toc #col2{
-    display: none;
+#content{
+    padding-left:20px;
+    padding-right:20px;
 }
 
-.menu_nav , .menu_nav > li{
+
+#sidebar a{
+    color: black;
+}
+
+#sidebar a:hover{
+    text-transform: none;
+}
+
+aside nav > ul{
+    line-height: 3rem;
+    font-weight: bold;
     list-style: none;
     padding: 0px;
 }
 
-.menu_nav li a{
-    color: black;
-
-}
-
-.menu_nav li a:hover, .submenu_nav li a:hover{
-    text-transform: none;
-
-}
-
-.menu_nav li, .sub_menu_nav li{
-    line-height: 3rem;
+aside nav li:not(:last-child){
+    padding: 0px;
     border-bottom: 1px solid  rgb(223,223,224);
 }
 
-.menu_nav > li{
-    font-weight: bold;
-}
-.menu_nav li>ul{
+
+
+aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
     font-weight: normal;
+    list-style: none;
+    padding: 0px;
+    margin-left: 40px;
 }
-
-.menu_nav li>ul>li
-{
-    padding-left: 40px;
-}
-
 
 @media(min-width: 600px){
 
-    #col2{
+    #content{
         padding-left: 40px;
         padding-right:40px;
     } 
@@ -329,23 +293,49 @@ table thead > tr{
 
 @media(min-width: 768px){
 
-    #col2{
-        padding-left: 60px;
-        padding-right:60px;
+    #content{
+        padding-left: 80px;
+        padding-right:80px;
     } 
 
 }
 
 @media(min-width:1440px){
 
-    #col1, #col2, .toc #col1,.toc #col2{
+    h1{
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+
+    #sidebar h2{
+        padding-top:20px;
+        font-size: 16px;
+    }
+
+    #btn-toc{
+        display: none !important;
+    }
+
+    #btn-content{
+        display: block !important;
+    }
+
+    #sidebar, #content{
         display: block;
     }
 
-    #col2{
-        margin-left: 25%;
-        padding:0px;
-        padding-right:10%;
+    #sidebar{
+        padding-left: 40px;
+        font-size: 90% !important;
+        color: rgba(0,0,0,.65);
+        width: 25%;
+    }
+
+    #content{
+        width: 100%;
+        padding-left: 25%;
+        padding-right: 10%;
     }
 
     .col-6 {
@@ -364,29 +354,20 @@ table thead > tr{
     }
 
 
-    #btn-toc, #btn-toc.toc{
-        display:none;
+    aside nav > ul{
+        margin-left: 20px;
     }
 
-    #btn-content,#btn-content.toc{
-        display:inline;
+    aside nav > ul>li>ul, nav > ul>li>ul>nav>ul {
+        margin-left:20px;
     }
 
-    .sidebar{
-        padding-left: 20px;
-        font-size: 90%;
-        color: rgba(0,0,0,.65);
+    aside nav li:not(:last-child){
+        padding: 0px;
+        border-bottom: none;
     }
 
-    .sidebar h2{
-        text-transform: uppercase;
-        font-size: 1rem;
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: black;
-    }
-
-    .menu_nav li {
+    aside nav li {
         line-height: 2rem;
         border: none;
     }

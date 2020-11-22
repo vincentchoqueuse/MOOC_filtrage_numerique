@@ -13,25 +13,27 @@
 </head><body><nav class="navbar">
    <ul>
       <li>
-        <button class="btn" id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" id="nav-button"></button>
-       <button class="btn" id="btn-toc"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" id="nav-button"></button> 
+        <div id="nav-button">
+          <button id="btn-content"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/menu.svg" width="24px" class="pointer-none"></button>
+          <button id="btn-toc" class="hidden"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/x.svg" width="24px" class="pointer-none"></button> 
+        </div>
       </li>
       <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/">Filtrage Numérique</a></li>
       <li style="float:right"><a href="https://github.com/vincentchoqueuse/MOOC_filtrage_numerique"><img src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/img/github.svg"></img></a></li>
   </ul>
 </nav><main role="main" class="container-fluid">
         <div class="row" id="main-row">
-            <div id="col1" class="col-3">
+            <div id="sidebar" class="col-3">
 
-<aside class="sidebar" id="sidebar" class="collapse" >
-<h2 class="d-none d-sm-block">Filtrage Numérique </h2>
-<nav class="sidebar-nav">
+<aside >
+<h2>Filtrage Numérique </h2>
+<nav>
     
-    <ul class="menu_nav">
-        <li> <a class="sidebar-nav-item" href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
+    <ul>
+        <li> <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
         
-        <li> <a class="sidebar-nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
-        <ul>
+        <li> <a class="nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
+        <li><ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
@@ -51,22 +53,24 @@
              
         
         </ul>
+        </li>
 
     
-        <li> <a class="sidebar-nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
-        <ul>
+        <li> <a class="nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
+        <li><ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/"> Python Cheatsheet</a></li>
              
         
         </ul>
+        </li>
 
     
     </ul>
 </nav>
 </aside></div>
-            <div id="col2" class="col-9">
-                <div id="content" class="content">
+            <div id="content" class="col-9 active">
+                <div class="content">
 <h1>Introduction</h1>
 
 <p>Un filtre permet de &ldquo;sculpter&rdquo; un signal en supprimant ou en accentuant certaines composantes fréquentielles. Alors que les filtres analogiques reposent sur la conception de circuits électroniques, les filtres numériques eux sont souvent plus souples à mettre en oeuvre car ils reposent sur des algorithmes simples. Ces algorithmes peuvent être codés dans n&rsquo;importe quel langage de programmation même si le C reste la norme pour les applications embarquées.</p>
@@ -108,6 +112,36 @@ $$y[n]=\sum_{m=0}^{M}b_m x[n-m]-\sum_{l=1}^{L}a_l y[n-l].$$
 <li>les coefficients réels $a_l$ correspondent à la partie récursive du filtre.</li>
 </ul>
 <p>Dans l&rsquo;équation aux différences, notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L&rsquo;ordre $N$ d&rsquo;un filtre est défini comme étant la plus grande valeur entre $M$ et $L$ c-a-d $N=\max(M,L)$.</p>
+<p>Pour illustrer le contenu de ce chapitre, nous allons considérer le filtre d&rsquo;ordre 2 suivant.</p>
+<p><strong>Exemple</strong> (Filtre 1)</p>
+<div class="exemple">
+Le filtre 1 est décrit par l'équation aux différences 
+$$
+\begin{aligned}
+y[n]&=0.065x[n]+0.13 x[n-1]+0.065x[n-2]\\
+&~~~+1.143y[n-1]-0.413y[n-2]
+\end{aligned}
+$$
+</div>
+<p>Pour le filtre 1, nous trouvons par identification :</p>
+<ul>
+<li>$b_0=0.065$, $b_1=0.13$ et $b_2=0.065$,</li>
+<li>$a_0=1$, $a_1=-1.143$ et $a_2=0.413$.</li>
+</ul>
+<p>Un filtre régit par une équation aux différences peut être implémenté facilement en utilisant une récurrence. A titre d&rsquo;exemple, la code suivant montre une implémentation possible (et complètement non optimisée) en Python.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">yn <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]
+xn <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]
+x_input<span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]
+y_output <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>]
+
+<span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(len(x_input)):
+    xn[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> x_input[n]
+    y_output[n] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.065</span><span style="color:#f92672">*</span>xn[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">0.13</span><span style="color:#f92672">*</span>xn[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">0.065</span><span style="color:#f92672">*</span>xn[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1.143</span><span style="color:#f92672">*</span>yn[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">0.413</span><span style="color:#f92672">*</span>yn[<span style="color:#ae81ff">2</span>]
+    <span style="color:#75715e"># save old values</span>
+    yn[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> yn[<span style="color:#ae81ff">1</span>]
+    yn[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> y_output[n]
+    xn[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> xn[<span style="color:#ae81ff">1</span>]
+    xn[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> xn[<span style="color:#ae81ff">0</span>]</code></pre></div>
 <h2 id="filtres-fir-et-iir">Filtres FIR et IIR</h2>
 <p>La réponse impulsionnelle d&rsquo;un filtre décrit par une équation aux différences s&rsquo;obtient de manière recursive en prenant comme entrée $x[n]=\delta[n]$ et en fixant $y[n]=0$ pour $n&lt;0$. Il est alors possible de définir deux grandes catégories de filtres :</p>
 <ul>
@@ -148,6 +182,7 @@ $h[n]=b_m$. Cette réponse est nécessairement nulle au bout de $M$ échantillon
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"></script>
 <script src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/js/custom.js"></script>
+<script src="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/js/clipboard.js"></script>
 </body>
 </html>
 

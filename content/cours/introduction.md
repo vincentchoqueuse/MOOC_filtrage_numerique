@@ -52,6 +52,43 @@ Dans l'équation aux différences :
 
 Dans l'équation aux différences, notons que le coefficient multipliant $y[n]$ est implicitement égal à $a_0=1$. L'ordre $N$ d'un filtre est défini comme étant la plus grande valeur entre $M$ et $L$ c-a-d $N=\max(M,L)$.
 
+Pour illustrer le contenu de ce chapitre, nous allons considérer le filtre d'ordre 2 suivant.
+
+**Exemple** (Filtre 1)
+<div class="exemple">
+Le filtre 1 est décrit par l'équation aux différences 
+$$
+\begin{aligned}
+y[n]&=0.065x[n]+0.13 x[n-1]+0.065x[n-2]\\
+&~~~+1.143y[n-1]-0.413y[n-2]
+\end{aligned}
+$$
+</div>
+
+Pour le filtre 1, nous trouvons par identification :
+
+* $b_0=0.065$, $b_1=0.13$ et $b_2=0.065$,
+* $a_0=1$, $a_1=-1.143$ et $a_2=0.413$.
+
+Un filtre régit par une équation aux différences peut être implémenté facilement en utilisant une récurrence. A titre d'exemple, la code suivant montre une implémentation possible (et complètement non optimisée) en Python.
+
+{{< highlight python >}}
+yn = [0,0,0]
+xn = [0,0,0]
+x_input= [1,0,1,0,0,0,0]
+y_output = [0,0,0,0,0,0,0]
+
+for n in range(len(x_input)):
+    xn[0] = x_input[n]
+    y_output[n] = 0.065*xn[0]+0.13*xn[1]+0.065*xn[2]+1.143*yn[1]-0.413*yn[2]
+    # save old values
+    yn[2] = yn[1]
+    yn[1] = y_output[n]
+    xn[2] = xn[1]
+    xn[1] = xn[0]
+
+{{< / highlight >}}
+
 ## Filtres FIR et IIR
 
 La réponse impulsionnelle d'un filtre décrit par une équation aux différences s'obtient de manière recursive en prenant comme entrée $x[n]=\delta[n]$ et en fixant $y[n]=0$ pour $n<0$. Il est alors possible de définir deux grandes catégories de filtres :

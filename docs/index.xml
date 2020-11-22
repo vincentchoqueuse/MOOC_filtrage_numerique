@@ -13,8 +13,7 @@
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/</guid>
       <description>La librairie Python scipy contient tous les outils nécessaire pour l&amp;rsquo;analyse et l&amp;rsquo;implémentation des filtres. La fonction dlti permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir doc).
-Pôles et zéros Les pôles et les zéros sont des attributs de l&amp;rsquo;objet dlti.
-from scipy import signal H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413]) print(&amp;#34;Poles : {}&amp;#34;.format(H.poles)) print(&amp;#34;Zeros : {}&amp;#34;.format(H.zeros)) Réponses Temporelles Les réponses temporelles (impulsionnelle, indicielle) s&amp;rsquo;obtiennent facilement en utilisant les méthodes impulse ou step de l&amp;rsquo;objet lti.</description>
+Implémentation d&amp;rsquo;un filtre Un filtre peut être implémenté par une récurrence. La fonction scipy dfilter permet d&amp;rsquo;obtenir la sortie d&amp;rsquo;un filtre lorsque l&amp;rsquo;entrée est une liste x (ou un tableau numpy). La sortie est calculée en appelant des fonctions codées en C.</description>
     </item>
     
     <item>
@@ -33,10 +32,9 @@ Dans ce support de cours, nous allons nous intéresser à la synthèse de filtre
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/chapitre1/</guid>
-      <description>Dans cette section, nous allons introduire les outils nécessaires pour l&amp;rsquo;analyse des filtres numériques. Pour illustrer le contenu de cette section, nous allons considérer le filtre d&amp;rsquo;ordre 2 suivant.
-Exemple (Filtre 1)
-Le filtre 1 est décrit par l&#39;équation aux différences $$ \begin{aligned} y[n]&amp;=0.065x[n]+0.13 x[n-1]+0.065x[n-2]\\ &amp;~~~+1.143y[n-1]-0.413y[n-2] \end{aligned} $$  Transformée en Z Définition (Transformée en $\mathcal{Z}$)
-La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie par l&#39;équation $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$ où $z$ est une variable complexe.</description>
+      <description>Dans cette section, nous allons introduire les outils nécessaires pour l&amp;rsquo;analyse des filtres numériques.
+Transformée en Z Définition (Transformée en $\mathcal{Z}$)
+La transformée en $\mathcal{Z}$ d&#39;une suite numérique $x[n]$ est définie par l&#39;équation $$X(z)\triangleq \sum_{n=-\infty}^{\infty}x[n]z^{-n}$$ où $z$ est une variable complexe.  Il est important de noter que la transformée de $\mathcal{Z}$ d&amp;rsquo;un signal ne converge pas nécessairement pour tout $z \in \mathbb{Z}$. Il est alors nécessaire de préciser la région de convergence (ROC) pour laquelle la série converge c-a-d les valeurs de $z$ telles que $|X(z)|&amp;lt;\infty$.</description>
     </item>
     
     <item>
