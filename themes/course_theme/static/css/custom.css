@@ -270,13 +270,13 @@ aside nav > ul{
     padding: 0px;
 }
 
-aside nav li:not(:last-child){
+aside nav li{
     padding: 0px;
     border-bottom: 1px solid  rgb(223,223,224);
 }
 
 
-aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
+aside nav > ul>ul,nav > ul>ul>nav>ul{
     font-weight: normal;
     list-style: none;
     padding: 0px;
@@ -358,14 +358,14 @@ aside nav > ul>li>ul,nav > ul>li>ul>nav>ul{
         margin-left: 20px;
     }
 
-    aside nav > ul>li>ul, nav > ul>li>ul>nav>ul {
+    aside nav > ul>ul, nav > ul>ul>nav>ul {
         margin-left:20px;
     }
-    aside nav ul>li>ul>li{
+    aside nav ul>ul>li{
         list-style: circle;
     }
 
-    aside nav li:not(:last-child){
+    aside nav li{
        
         padding: 0px;
         border-bottom: none;

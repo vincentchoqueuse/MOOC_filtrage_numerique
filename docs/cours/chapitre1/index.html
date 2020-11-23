@@ -33,7 +33,7 @@
         <li> <a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/" title="Home">Home</a></li>
         
         <li> <a class="nav-item active" href="/MOOC_filtrage_numerique/cours/" title="Cours">Cours</a></li>
-        <li><ul>
+        <ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/cours/introduction/"> Introduction</a></li>
              
@@ -54,17 +54,17 @@
              
         
         </ul>
-        </li>
+
 
     
         <li> <a class="nav-item" href="/MOOC_filtrage_numerique/snippests/" title="Snippests">Snippests</a></li>
-        <li><ul>
+        <ul>
         
             <li ><a href="https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/"> Python Cheatsheet</a></li>
              
         
         </ul>
-        </li>
+
 
     
     </ul>
@@ -220,7 +220,7 @@ Une fonction de transfert peut s'exprimer sous forme factorisée de la manière 
 <li>Les valeurs $p_l$ correspondent aux poles de la fonction de transfert ($H(z)=\pm \infty$).</li>
 <li>$K$ est un facteur d&rsquo;amplification.</li>
 </ul>
-<p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réel ou complexes-conjugués.</p>
+<p>En pratique, les pôles et les zéros s&rsquo;obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réels ou complexes-conjugués.</p>
 <p><strong>Exemple</strong> (Filtre 1)</p>
 <div class="exemple">
 Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugués en $z=0.57\pm 0.29j$. La fonction de transfert peut se reexprimer sous la forme factorisée suivante :
@@ -237,8 +237,8 @@ Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugu�
 <p>Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utiliserons la notion de stabilité au sens BIBO (Bounded-Input Bounded-Output).</p>
 <p><strong>Définiton</strong> (BIBO Stable)</p>
 <div class="definition">
-Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-a-d
-<p>$$y[n]\le y_{max}&lt;\infty$$</p>
+Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-à-d
+<p>$$|y[n]|\le y_{max}&lt;\infty$$</p>
 </div>
 <p>Il est possible d&rsquo;établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $|x[n]|\le x_{max}$ où $x_{max}$ désigne le maximum de $|x[n]|$. Comme la sortie s&rsquo;exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons</p>
 <p>$$

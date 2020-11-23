@@ -41,13 +41,13 @@
     \draw[->,>=latex] (op1) -| (delai1);
     \draw[->,>=latex] (gain1) -- (op21);
     \draw[->,>=latex] (delai1) -- (delai2);
-    \draw[->,>=latex] (delai1) |- (gain21);
+    \draw[-] (delai1) |- (gain21);
     \draw[->,>=latex] (gain21) -- (op22);
     \draw[-] (delai1) |- (gain2);
     \draw[->,>=latex] (gain2) -- (op2);
     \draw[-] (delai2) |- (gain3);
     \draw[->,>=latex] (gain3) -| (op2);
-    \draw[->,>=latex] (delai2) |- (gain22);
+    \draw[-] (delai2) |- (gain22);
     \draw[->,>=latex] (gain22) -| (op22);
     \draw[->,>=latex] (op2) -| (op1);
     \draw[->,>=latex] (op22) -- (op21);

@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**fig1.tex
-(./fig1.tex
+**fig2b.tex
+(./fig2b.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-05-05> (/usr/local/texlive/2020basic/texmf-dist/tex/
 latex/standalone/standalone.cls
@@ -394,9 +394,8 @@ def
 File: l3backend-pdfmode.def 2020-05-05 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count199
 \l__pdf_internal_box=\box57
-)
-No file fig1.aux.
-\openout1 = `fig1.aux'.
+) (./fig2b.aux)
+\openout1 = `fig2b.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -444,23 +443,25 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/usr/local/texlive/2020basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (.
-/fig1.aux) ) 
+/fig2b.aux) ) 
 Here is how much of TeX's memory you used:
- 12981 strings out of 482129
- 274404 string characters out of 5938686
- 479671 words of memory out of 5000000
- 28386 multiletter control sequences out of 15000+600000
+ 13102 strings out of 482129
+ 276759 string characters out of 5938686
+ 485674 words of memory out of 5000000
+ 28505 multiletter control sequences out of 15000+600000
  532338 words of font info for 24 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 68i,7n,64p,389b,626s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb>
-Output written on fig1.pdf (1 page, 27217 bytes).
+ 68i,7n,64p,390b,651s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020basic/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb>
+Output written on fig2b.pdf (1 page, 41166 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 16 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

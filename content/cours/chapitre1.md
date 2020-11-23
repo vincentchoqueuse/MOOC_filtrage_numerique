@@ -122,7 +122,7 @@ $$H(z)=K\frac{\prod_{m=1}^{M}(1-z_m z^{-1})}{\prod_{l=1}^{L}(1-p_l z^{-1})}$$
 * $K$ est un facteur d'amplification.
 
 
-En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réel ou complexes-conjugués. 
+En pratique, les pôles et les zéros s'obtiennent le plus souvent en utilisant des outils numériques. Une fois calculés, il est courant de représenter les pôles et les zéros dans le plan complexe. Par convention, les pôles sont indiqués avec un $\times$ et les zéros avec un $\circ$. La figure suivante présente la localisation des pôles et des zéros pour le filtre 1. Notons que comme les coefficients $a_l$ et $b_m$ sont réels, les pôles et zéros complexes sont nécessairement purement réels ou complexes-conjugués. 
 
 
 **Exemple** (Filtre 1)
@@ -143,9 +143,9 @@ Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utilisero
 
 **Définiton** (BIBO Stable)
 <div class="definition">
-Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-a-d
+Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-à-d
 
-$$y[n]\le y_{max}<\infty$$
+$$|y[n]|\le y_{max}<\infty$$
 </div>
 
 Il est possible d'établir un lien direct entre la stabilité au sens BIBO est la réponse impulsionnelle $h[n]$ du filtre. Notons $|x[n]|\le x_{max}$ où $x_{max}$ désigne le maximum de $|x[n]|$. Comme la sortie s'exprime sous la forme $y[n]=h[n]*x[n]$, nous obtenons
