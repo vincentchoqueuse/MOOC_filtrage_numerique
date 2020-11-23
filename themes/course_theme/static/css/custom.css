@@ -301,7 +301,7 @@ aside nav > ul>ul,nav > ul>ul>nav>ul{
 
 }
 
-@media(min-width:1440px){
+@media(min-width:1280px){
 
     h1{
         padding-top: 20px;
