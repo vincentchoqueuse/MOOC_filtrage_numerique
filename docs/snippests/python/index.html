@@ -85,29 +85,34 @@
 <h1>Python Cheatsheet</h1>
 
 <p>La librairie Python <code>scipy</code> contient tous les outils nécessaire pour l&rsquo;analyse et l&rsquo;implémentation des filtres.
-La fonction <code>dlti</code> permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html">doc</a>).</p>
+La fonction <code>dlti</code> permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html">doc</a>). Dans cette &ldquo;cheatsheet&rdquo;, nous utilisons toutefois essentiellement des fonction <code>numpy</code> pour l&rsquo;analyse des filtres afin de rendre le lien entre le cours et l&rsquo;implémentation plus explicite.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">b <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>]
+a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>]</code></pre></div>
 <h2 id="implémentation-dun-filtre">Implémentation d&rsquo;un filtre</h2>
 <p>Un filtre peut être implémenté par une récurrence. La fonction scipy <code>dfilter</code> permet d&rsquo;obtenir la sortie d&rsquo;un filtre lorsque l&rsquo;entrée est une liste <code>x</code> (ou un tableau <code>numpy</code>). La sortie est calculée en appelant des fonctions codées en C.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
 x <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.4</span>]
-y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],x)</code></pre></div>
+y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter(b,a,x)</code></pre></div>
 <h2 id="pôles-et-zéros">Pôles et zéros</h2>
-<p>Les pôles et les zéros sont des attributs de l&rsquo;objet <code>dlti</code>.</p>
+<p>Les pôles et les zéros peuvent s&rsquo;obtenir en utilisant la fonction <code>roots</code> de numpy.</p>
 <h3 id="calcul">Calcul</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
+zeros <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>roots(b)
+poles <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>roots(a)
 
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Poles : {}&#34;</span><span style="color:#f92672">.</span>format(H<span style="color:#f92672">.</span>poles))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Zeros : {}&#34;</span><span style="color:#f92672">.</span>format(H<span style="color:#f92672">.</span>zeros))</code></pre></div>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Poles : {}&#34;</span><span style="color:#f92672">.</span>format(poles))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Zeros : {}&#34;</span><span style="color:#f92672">.</span>format(zeros))</code></pre></div>
 <h3 id="affichage-avec-matplotlib">Affichage avec Matplotlib</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
-plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(H<span style="color:#f92672">.</span>poles),np<span style="color:#f92672">.</span>imag(H<span style="color:#f92672">.</span>poles),<span style="color:#e6db74">&#34;x&#34;</span>)
-plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(H<span style="color:#f92672">.</span>zeros),np<span style="color:#f92672">.</span>imag(H<span style="color:#f92672">.</span>zeros),<span style="color:#e6db74">&#34;o&#34;</span>)</code></pre></div>
+zeros <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>roots(b)
+poles <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>roots(a)
+
+plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(poles),np<span style="color:#f92672">.</span>imag(poles),<span style="color:#e6db74">&#34;x&#34;</span>)
+plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(zeros),np<span style="color:#f92672">.</span>imag(zeros),<span style="color:#e6db74">&#34;o&#34;</span>)</code></pre></div>
 <h2 id="réponses-temporelles">Réponses Temporelles</h2>
 <p>Les réponses temporelles (impulsionnelle, indicielle) s&rsquo;obtiennent facilement en utilisant la méthodes <code>lfilter</code></p>
 <h3 id="réponse-impulsionnelle">Réponse Impulsionnelle</h3>
@@ -116,8 +121,8 @@ plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</spa
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
 n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
-impulse <span style="color:#f92672">=</span> (n<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
-h <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],impulse)
+impulse <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>(n<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+h <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter(b,a,impulse)
 
 plt<span style="color:#f92672">.</span>stem(n, h)
 plt<span style="color:#f92672">.</span>grid()
@@ -129,21 +134,20 @@ plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;h
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
 n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
-step <span style="color:#f92672">=</span> (n<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>)
-y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],step)
+step <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>(n<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>)
+y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter(b,a,step)
 
 plt<span style="color:#f92672">.</span>stem(n, y)
 plt<span style="color:#f92672">.</span>grid()
 plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
 plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;s[n]&#39;</span>)</code></pre></div>
 <h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
-<p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqresp</code> de l&rsquo;objet <code>lti</code>. Cette méthode renvoie deux tableaux <code>numpy</code>.</p>
+<p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqresp</code> de l&rsquo;objet <code>dlti</code>. Cette méthode renvoie deux tableaux <code>numpy</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
-
+H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti(b,a)
 w, Hjw <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>freqresp()
 modulus <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(Hjw)
 argument <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>angle(Hjw)

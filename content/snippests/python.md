@@ -4,7 +4,13 @@ weight: 1
 ---
 
 La librairie Python `scipy` contient tous les outils nécessaire pour l'analyse et l'implémentation des filtres. 
-La fonction `dlti` permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir [doc](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html)). 
+La fonction `dlti` permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir [doc](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.dlti.html)). Dans cette "cheatsheet", nous utilisons toutefois essentiellement des fonction `numpy` pour l'analyse des filtres afin de rendre le lien entre le cours et l'implémentation plus explicite.
+
+{{< highlight python >}}
+b = [0.065,0.13,0.065]
+a = [1,-1.143,0.413]
+{{< / highlight >}}
+
 
 
 ## Implémentation d'un filtre
@@ -15,22 +21,23 @@ Un filtre peut être implémenté par une récurrence. La fonction scipy `dfilte
 from scipy import signal
 
 x = [1,0,0,1,0,0.4]
-y = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],x)
+y = signal.lfilter(b,a,x)
 {{< / highlight >}}
 
 ## Pôles et zéros
 
-Les pôles et les zéros sont des attributs de l'objet `dlti`.
+Les pôles et les zéros peuvent s'obtenir en utilisant la fonction `roots` de numpy.
 
 ### Calcul
 
 {{< highlight python >}}
-from scipy import signal
+import numpy as np
 
-H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+zeros = np.roots(b)
+poles = np.roots(a)
 
-print("Poles : {}".format(H.poles))
-print("Zeros : {}".format(H.zeros))
+print("Poles : {}".format(poles))
+print("Zeros : {}".format(zeros))
 {{< / highlight >}}
 
 ### Affichage avec Matplotlib
@@ -39,9 +46,11 @@ print("Zeros : {}".format(H.zeros))
 import matplotlib.pyplot as plt
 from scipy import signal
 
-H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
-plt.plot(np.real(H.poles),np.imag(H.poles),"x")
-plt.plot(np.real(H.zeros),np.imag(H.zeros),"o")
+zeros = np.roots(b)
+poles = np.roots(a)
+
+plt.plot(np.real(poles),np.imag(poles),"x")
+plt.plot(np.real(zeros),np.imag(zeros),"o")
 {{< / highlight >}}
 
 ## Réponses Temporelles
@@ -56,8 +65,8 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 n = np.arange(10)
-impulse = (n==0)
-h = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],impulse)
+impulse = 1.0*(n==0)
+h = signal.lfilter(b,a,impulse)
 
 plt.stem(n, h)
 plt.grid()
@@ -73,8 +82,8 @@ import matplotlib.pyplot as plt
 from scipy import signal
 
 n = np.arange(10)
-step = (n>=0)
-y = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],step)
+step = 1.0*(n>=0)
+y = signal.lfilter(b,a,step)
 
 plt.stem(n, y)
 plt.grid()
@@ -84,7 +93,7 @@ plt.ylabel('s[n]')
 
 
 ## Réponse Fréquentielle
-La réponse fréquentielle s'obtient facilement en utilisant la méthode `freqresp` de l'objet `lti`. Cette méthode renvoie deux tableaux `numpy`.
+La réponse fréquentielle s'obtient facilement en utilisant la méthode `freqresp` de l'objet `dlti`. Cette méthode renvoie deux tableaux `numpy`.
 
 
 {{< highlight python >}}
@@ -92,8 +101,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
-
+H = signal.dlti(b,a)
 w, Hjw = H.freqresp()
 modulus = np.abs(Hjw)
 argument = np.angle(Hjw)

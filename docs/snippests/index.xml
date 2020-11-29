@@ -12,8 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vincentchoqueuse.github.io/MOOC_filtrage_numerique/snippests/python/</guid>
-      <description>La librairie Python scipy contient tous les outils nécessaire pour l&amp;rsquo;analyse et l&amp;rsquo;implémentation des filtres. La fonction dlti permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir doc).
-Implémentation d&amp;rsquo;un filtre Un filtre peut être implémenté par une récurrence. La fonction scipy dfilter permet d&amp;rsquo;obtenir la sortie d&amp;rsquo;un filtre lorsque l&amp;rsquo;entrée est une liste x (ou un tableau numpy). La sortie est calculée en appelant des fonctions codées en C.</description>
+      <description>La librairie Python scipy contient tous les outils nécessaire pour l&amp;rsquo;analyse et l&amp;rsquo;implémentation des filtres. La fonction dlti permet la création de filtre numérique à partir de la forme polynomiale ou factorisée (voir doc). Dans cette &amp;ldquo;cheatsheet&amp;rdquo;, nous utilisons toutefois essentiellement des fonction numpy pour l&amp;rsquo;analyse des filtres afin de rendre le lien entre le cours et l&amp;rsquo;implémentation plus explicite.
+b = [0.065,0.13,0.065] a = [1,-1.143,0.413] Implémentation d&amp;rsquo;un filtre Un filtre peut être implémenté par une récurrence.</description>
     </item>
     
   </channel>
