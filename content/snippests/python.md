@@ -93,7 +93,7 @@ plt.ylabel('s[n]')
 
 
 ## Réponse Fréquentielle
-La réponse fréquentielle s'obtient facilement en utilisant la méthode `freqresp` de l'objet `dlti`. Cette méthode renvoie deux tableaux `numpy`.
+La réponse fréquentielle s'obtient facilement en utilisant la méthode `freqz` (https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html#scipy-signal-freqz). 
 
 
 {{< highlight python >}}
@@ -101,10 +101,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-H = signal.dlti(b,a)
-w, Hjw = H.freqresp()
-modulus = np.abs(Hjw)
-argument = np.angle(Hjw)
+w,H = signal.freqz(b,a)
+modulus = np.abs(H)
+argument = np.angle(H)
 
 plt.figure()
 plt.subplot(1,2,1)
