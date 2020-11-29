@@ -126,3 +126,17 @@ plt.plot(w,argument)
 plt.xlabel('$\Omega$')
 plt.ylabel('Argument')
 {{< / highlight >}}
+
+## Décomposition en élements simples
+
+La décomposition en élements simples s'obtient en utilisant la fonction `residuez`(https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.residuez.html?highlight=residue#scipy.signal.residuez)
+
+{{< highlight python >}}
+from scipy import signal
+
+b = [0.065,0.13,0.065]
+a = [1,-1.143,0.413]
+
+r,p,k = signal.residuez(b,a,step)
+
+{{< / highlight >}}
