@@ -91,10 +91,7 @@ La fonction <code>dlti</code> permet la création de filtre numérique à partir
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
 x <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.4</span>]
-bn <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>]
-an <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>]
-
-y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter(bn,an,x)</code></pre></div>
+y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],x)</code></pre></div>
 <h2 id="pôles-et-zéros">Pôles et zéros</h2>
 <p>Les pôles et les zéros sont des attributs de l&rsquo;objet <code>dlti</code>.</p>
 <h3 id="calcul">Calcul</h3>
@@ -133,9 +130,9 @@ plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;h
 
 n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
 step <span style="color:#f92672">=</span> (n<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>)
-h <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],step)
+y <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],step)
 
-plt<span style="color:#f92672">.</span>stem(n, h)
+plt<span style="color:#f92672">.</span>stem(n, y)
 plt<span style="color:#f92672">.</span>grid()
 plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
 plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;s[n]&#39;</span>)</code></pre></div>

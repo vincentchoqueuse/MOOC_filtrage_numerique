@@ -15,10 +15,7 @@ Un filtre peut être implémenté par une récurrence. La fonction scipy `dfilte
 from scipy import signal
 
 x = [1,0,0,1,0,0.4]
-bn = [0.065,0.13,0.065]
-an = [1,-1.143,0.413]
-
-y = signal.lfilter(bn,an,x)
+y = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],x)
 {{< / highlight >}}
 
 ## Pôles et zéros
@@ -77,9 +74,9 @@ from scipy import signal
 
 n = np.arange(10)
 step = (n>=0)
-h = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],step)
+y = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],step)
 
-plt.stem(n, h)
+plt.stem(n, y)
 plt.grid()
 plt.xlabel('n [samples]')
 plt.ylabel('s[n]')
