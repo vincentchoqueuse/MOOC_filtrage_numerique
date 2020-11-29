@@ -112,16 +112,17 @@ H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span
 plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(H<span style="color:#f92672">.</span>poles),np<span style="color:#f92672">.</span>imag(H<span style="color:#f92672">.</span>poles),<span style="color:#e6db74">&#34;x&#34;</span>)
 plt<span style="color:#f92672">.</span>plot(np<span style="color:#f92672">.</span>real(H<span style="color:#f92672">.</span>zeros),np<span style="color:#f92672">.</span>imag(H<span style="color:#f92672">.</span>zeros),<span style="color:#e6db74">&#34;o&#34;</span>)</code></pre></div>
 <h2 id="réponses-temporelles">Réponses Temporelles</h2>
-<p>Les réponses temporelles (impulsionnelle, indicielle) s&rsquo;obtiennent facilement en utilisant les méthodes <code>impulse</code> ou <code>step</code> de l&rsquo;objet <code>lti</code>. Ces méthodes renvoient deux tableaux <code>numpy</code>.</p>
+<p>Les réponses temporelles (impulsionnelle, indicielle) s&rsquo;obtiennent facilement en utilisant la méthodes <code>lfilter</code></p>
 <h3 id="réponse-impulsionnelle">Réponse Impulsionnelle</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
+n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
+impulse <span style="color:#f92672">=</span> (n<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+h <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],impulse)
 
-n, y <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>impulse()
-plt<span style="color:#f92672">.</span>step(n, np<span style="color:#f92672">.</span>squeeze(y))
+plt<span style="color:#f92672">.</span>stem(n, h)
 plt<span style="color:#f92672">.</span>grid()
 plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
 plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;h[n]&#39;</span>)</code></pre></div>
@@ -130,13 +131,14 @@ plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;h
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>])
+n <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">10</span>)
+step <span style="color:#f92672">=</span> (n<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>)
+h <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>lfilter([<span style="color:#ae81ff">0.065</span>,<span style="color:#ae81ff">0.13</span>,<span style="color:#ae81ff">0.065</span>],[<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1.143</span>,<span style="color:#ae81ff">0.413</span>],step)
 
-n, y <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>step()
-plt<span style="color:#f92672">.</span>step(n, np<span style="color:#f92672">.</span>squeeze(y))
+plt<span style="color:#f92672">.</span>stem(n, h)
 plt<span style="color:#f92672">.</span>grid()
 plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
-plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Amplitude&#39;</span>)</code></pre></div>
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;s[n]&#39;</span>)</code></pre></div>
 <h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
 <p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqresp</code> de l&rsquo;objet <code>lti</code>. Cette méthode renvoie deux tableaux <code>numpy</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
