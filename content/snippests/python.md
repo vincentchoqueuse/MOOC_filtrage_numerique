@@ -49,7 +49,7 @@ plt.plot(np.real(H.zeros),np.imag(H.zeros),"o")
 
 ## Réponses Temporelles
 
-Les réponses temporelles (impulsionnelle, indicielle) s'obtiennent facilement en utilisant les méthodes `impulse` ou `step` de l'objet `lti`. Ces méthodes renvoient deux tableaux `numpy`.
+Les réponses temporelles (impulsionnelle, indicielle) s'obtiennent facilement en utilisant la méthodes `lfilter` 
 
 ### Réponse Impulsionnelle
 
@@ -58,10 +58,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+n = np.arange(10)
+impulse = (n==0)
+h = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],impulse)
 
-n, y = H.impulse()
-plt.step(n, np.squeeze(y))
+plt.stem(n, h)
 plt.grid()
 plt.xlabel('n [samples]')
 plt.ylabel('h[n]')
@@ -74,13 +75,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
-H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+n = np.arange(10)
+step = (n>=0)
+h = signal.lfilter([0.065,0.13,0.065],[1,-1.143,0.413],step)
 
-n, y = H.step()
-plt.step(n, np.squeeze(y))
+plt.stem(n, h)
 plt.grid()
 plt.xlabel('n [samples]')
-plt.ylabel('Amplitude')
+plt.ylabel('s[n]')
 {{< / highlight >}}
 
 
