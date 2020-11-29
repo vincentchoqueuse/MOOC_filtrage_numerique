@@ -142,15 +142,14 @@ plt<span style="color:#f92672">.</span>grid()
 plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;n [samples]&#39;</span>)
 plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;s[n]&#39;</span>)</code></pre></div>
 <h2 id="réponse-fréquentielle">Réponse Fréquentielle</h2>
-<p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqresp</code> de l&rsquo;objet <code>dlti</code>. Cette méthode renvoie deux tableaux <code>numpy</code>.</p>
+<p>La réponse fréquentielle s&rsquo;obtient facilement en utilisant la méthode <code>freqz</code> (<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html#scipy-signal-freqz)">https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.freqz.html#scipy-signal-freqz)</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 <span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
 <span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> signal
 
-H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>dlti(b,a)
-w, Hjw <span style="color:#f92672">=</span> H<span style="color:#f92672">.</span>freqresp()
-modulus <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(Hjw)
-argument <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>angle(Hjw)
+w,H <span style="color:#f92672">=</span> signal<span style="color:#f92672">.</span>freqz(b,a)
+modulus <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>abs(H)
+argument <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>angle(H)
 
 plt<span style="color:#f92672">.</span>figure()
 plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
