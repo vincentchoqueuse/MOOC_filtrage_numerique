@@ -25,6 +25,8 @@ y = signal.lfilter(bn,an,x)
 
 Les pôles et les zéros sont des attributs de l'objet `dlti`.
 
+### Calcul
+
 {{< highlight python >}}
 from scipy import signal
 
@@ -32,6 +34,17 @@ H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
 
 print("Poles : {}".format(H.poles))
 print("Zeros : {}".format(H.zeros))
+{{< / highlight >}}
+
+### Affichage avec Matplotlib
+
+{{< highlight python >}}
+import matplotlib.pyplot as plt
+from scipy import signal
+
+H = signal.dlti([0.065,0.13,0.065],[1,-1.143,0.413])
+plt.plot(np.real(H.poles),np.imag(H.poles),"x")
+plt.plot(np.real(H.zeros),np.imag(H.zeros),"o")
 {{< / highlight >}}
 
 ## Réponses Temporelles
