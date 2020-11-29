@@ -137,6 +137,6 @@ from scipy import signal
 b = [0.065,0.13,0.065]
 a = [1,-1.143,0.413]
 
-r,p,k = signal.residuez(b,a,step)
+r,p,k = signal.residuez(b,a)
 
 {{< / highlight >}}
