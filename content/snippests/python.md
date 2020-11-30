@@ -127,7 +127,7 @@ plt.xlabel('$\Omega$')
 plt.ylabel('Argument')
 {{< / highlight >}}
 
-## Décomposition en élements simples
+## Décomposition
 
 La décomposition en élements simples s'obtient en utilisant la fonction `residuez`(https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.residuez.html?highlight=residue#scipy.signal.residuez)
 
