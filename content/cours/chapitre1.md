@@ -141,7 +141,7 @@ Les pôles et les zéros de ce filtre sont représentés dans la figure suivante
 
 Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utiliserons la notion de stabilité au sens BIBO (Bounded-Input Bounded-Output). 
 
-**Définiton** (BIBO Stable)
+**Définition** (BIBO Stable)
 <div class="definition">
 Un filtre est dit BIBO stable lorsque pour une entrée $x[n]$ bornée la sortie $y[n]$ est également bornée c-à-d
 

@@ -42,6 +42,7 @@ print("Zeros : {}".format(zeros))
 ### Affichage avec Matplotlib
 
 {{< highlight python >}}
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
@@ -57,7 +58,7 @@ plt.plot(np.real(zeros),np.imag(zeros),"o")
 
 ## Réponses Temporelles
 
-Les réponses temporelles (impulsionnelle, indicielle) s'obtiennent facilement en utilisant la méthodes `lfilter` 
+Les réponses temporelles (impulsionnelle, indicielle) s'obtiennent facilement en utilisant la méthode `lfilter`. 
 
 ### Réponse Impulsionnelle
 
@@ -98,6 +99,28 @@ plt.grid()
 plt.xlabel('n [samples]')
 plt.ylabel('s[n]')
 {{< / highlight >}}
+
+### Réponse à une sinusoïde.
+
+{{< highlight python >}}
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+
+b = [0.065,0.13,0.065]
+a = [1,-1.143,0.413]
+
+n = np.arange(20)
+Fs = 50
+x = np.sin(2*np.pi*5*n/Fs)
+y = signal.lfilter(b,a,x)
+
+plt.stem(n, y)
+plt.grid()
+plt.xlabel('n [samples]')
+plt.ylabel('sinewave')
+{{< / highlight >}}
+
 
 
 ## Réponse Fréquentielle
