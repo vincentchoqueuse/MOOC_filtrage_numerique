@@ -45,7 +45,13 @@
     <li><a href="#transformée-en-z">Transformée en Z</a></li>
     <li><a href="#fonction-de-transfert">Fonction de transfert</a></li>
     <li><a href="#pôles-et-zéros">Pôles et Zéros</a></li>
-    <li><a href="#stabilité">Stabilité</a></li>
+    <li><a href="#réponse-temporelle">Réponse Temporelle</a>
+      <ul>
+        <li><a href="#stabilité">Stabilité</a></li>
+        <li><a href="#réponse-impulsionnelle">Réponse impulsionnelle</a></li>
+        <li><a href="#réponse-indicielle">Réponse indicielle</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                 
@@ -233,7 +239,8 @@ Le filtre 1 possède un zéro double en $z=-1$ et deux pôles complexes-conjugu�
         </figcaption>
 </figure>
 
-<h2 id="stabilité">Stabilité</h2>
+<h2 id="réponse-temporelle">Réponse Temporelle</h2>
+<h3 id="stabilité">Stabilité</h3>
 <p>Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utiliserons la notion de stabilité au sens BIBO (Bounded-Input Bounded-Output).</p>
 <p><strong>Définition</strong> (BIBO Stable)</p>
 <div class="definition">
@@ -258,6 +265,24 @@ $$\sum_{n=-\infty}^{\infty}|h[n]|<\infty.$$
 <p><strong>Propriété</strong> (Stabilité)</p>
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$
 $$|p_l|\le 1.$$
+</div>
+<h3 id="réponse-impulsionnelle">Réponse impulsionnelle</h3>
+<p>La réponse impulsionnelle correspond à la réponse du filtre lorsque l&rsquo;entrée est une impulsion $\delta[n]$. Comme la transformée en $Z$ de l&rsquo;impulsion est égale à $1$, nous obtenons la propriété suivante.</p>
+<p><strong>Propriété</strong> (Transformée en Z)</p>
+<div class="propriete">La transformée en $Z$ de la réponse impulsionnelle est donnée par 
+$$Y(z)=H(z)$$
+</div>
+<h3 id="réponse-indicielle">Réponse indicielle</h3>
+<p>La réponse indicielle correspond à la réponse du filtre lorsque l&rsquo;entrée est un échelon unité $u[n]$. Comme la transformée en $Z$ de l&rsquo;échelon est égale à $1/(1-z^{-1})$, nous obtenons la propriété suivante.</p>
+<p><strong>Propriété</strong> (Transformée en Z)</p>
+<div class="propriete">La transformée en $Z$ de la réponse indicielle est donnée par 
+$$Y(z)=\frac{1}{1-z^{-1}}H(z)$$
+</div>
+<p>L&rsquo;utilisation du théorème de la valeur finale permet d&rsquo;obtenir rapidement la valeur finale $y[\infty]$ dans le domaine temporel sans avoir à calculer explicitement la transformée en Z inverse.</p>
+<p><strong>Propriété</strong> (Transformée en Z)</p>
+<div class="propriete">La transformée en $Z$ de la réponse indicielle est donnée par 
+$$y[\infty]=\lim_{n\to \infty} y[n]=H(1)$$
+où $H(1)$ est appelé gain statique.
 </div>
 
 <div class="footer-nav">

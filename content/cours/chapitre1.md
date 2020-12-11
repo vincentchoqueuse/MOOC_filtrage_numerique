@@ -136,8 +136,9 @@ Les pôles et les zéros de ce filtre sont représentés dans la figure suivante
 
 {{< figure src="/MOOC_filtrage_numerique/img/zpk_filter2.svg" title="Pôles et Zéros du Filtre 2" width="450" >}}
 
+## Réponse Temporelle
 
-## Stabilité
+### Stabilité
 
 Il existe plusieurs définitions de la stabilité. Dans ce cours, nous utiliserons la notion de stabilité au sens BIBO (Bounded-Input Bounded-Output). 
 
@@ -172,3 +173,30 @@ Il est également possible d'établir une condition portant sur la localisation 
 <div class="propriete">Un filtre est stable si tous les pôles de sa fonction de transfert sont inclus dans le cercle de rayon unité c-a-d si, pour tout $l$
 $$|p_l|\le 1.$$
 </div>
+
+### Réponse impulsionnelle 
+
+La réponse impulsionnelle correspond à la réponse du filtre lorsque l'entrée est une impulsion $\delta[n]$. Comme la transformée en $Z$ de l'impulsion est égale à $1$, nous obtenons la propriété suivante.
+
+**Propriété** (Transformée en Z)
+<div class="propriete">La transformée en $Z$ de la réponse impulsionnelle est donnée par 
+$$Y(z)=H(z)$$
+</div>
+
+### Réponse indicielle
+
+La réponse indicielle correspond à la réponse du filtre lorsque l'entrée est un échelon unité $u[n]$. Comme la transformée en $Z$ de l'échelon est égale à $1/(1-z^{-1})$, nous obtenons la propriété suivante.
+
+**Propriété** (Transformée en Z)
+<div class="propriete">La transformée en $Z$ de la réponse indicielle est donnée par 
+$$Y(z)=\frac{1}{1-z^{-1}}H(z)$$
+</div>
+
+L'utilisation du théorème de la valeur finale permet d'obtenir rapidement la valeur finale $y[\infty]$ dans le domaine temporel sans avoir à calculer explicitement la transformée en Z inverse.
+
+**Propriété** (Transformée en Z)
+<div class="propriete">La transformée en $Z$ de la réponse indicielle est donnée par 
+$$y[\infty]=\lim_{n\to \infty} y[n]=H(1)$$
+où $H(1)$ est appelé gain statique.
+</div>
+
