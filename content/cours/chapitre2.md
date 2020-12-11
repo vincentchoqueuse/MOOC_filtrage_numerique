@@ -22,7 +22,7 @@ Cette dernière expression montre que les exponentielles complexes sont les fonc
 
 **Propriété** 
 <div class="propriete">
-La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de transfert $H(z)$ sur le cercle de rayon unité c-à-d en posant $z=e^{j\Omega}$.
+La réponse fréquentielle d'un filtre LTI s'obtient en évaluant la fonction de transfert $H(z)$ sur le cercle de rayon unité c-à-d en posant $z=e^{j\Omega}$ and $\Omega=\omega T_e$.
 </div>
 
 **Remarques**
